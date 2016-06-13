@@ -1,0 +1,149 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+
+	<!-- *** parameters *** -->
+
+	<parameters>
+		<size value="7"/>
+		<height value="11"/>
+		<max-hp value="9000" regeneration="0"/>
+		<max-ep value="100" regeneration="1"/>
+		<armor value="100"/>	
+		<armor-type value="metal"/>				
+		<sight value="15"/>
+		<time value="1"/>	
+		<multi-selection value="false"/>	
+		<cellmap value="false"/>
+		<levels>
+		</levels>
+		<fields>
+			<field value="land"/>
+		</fields>	
+		<properties>
+			<property value="rotated_climb"/>	
+		</properties>
+		<light enabled="false"/>
+		<unit-requirements/>
+		<upgrade-requirements/>
+		<resource-requirements/>
+		<resources-stored/>
+
+		<image path="../../../../icons/transport.bmp"/>
+		<image-cancel path="../../../../icons/stop.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">	
+		</selection-sounds>
+		<command-sounds enabled="true">
+		</command-sounds>
+		<tag value="land" />
+		<tag value="mech" />
+	</parameters>
+
+
+	<!-- *** skills *** -->
+
+	<skills>
+	
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="100"/>
+			<animation path="../drop_point/droppoint/droppoint.g3d"/>
+			<particles value="true">
+				<particle-file path="glow.xml"/>
+
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+		
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="450"/>
+			<anim-speed value="100"/>
+			<animation path="../drop_point/droppoint/droppoint.g3d"/>
+			<particles value="true">
+				<particle-file path="glow.xml"/>
+
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="be_built" />	
+			<name value="be_built_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="300" />
+			<animation path="../lander/lander/lander_arive.g3d" />
+			<sound enabled="false" />
+		</skill>
+
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="60"/>
+			<anim-speed value="70"/>
+			<animation path="../lander/lander/lander_arive.g3d"/>
+			<particles value="true" start-time="0.0" end-time="0.6">
+				<particle-file path="expl_small.xml"/>
+				<particle-file path="expl_small2.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0">
+				<sound-file path="sounds/expl.wav"/>
+				<sound-file path="sounds/expl.wav"/>					
+			</sound>
+			<shake enabled="true" intensity="70" duration="150" start-time="0.0">
+				<self enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+				<team enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+				<enemy enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+			</shake>				
+			<fade value="false"/>
+		</skill>
+
+
+		<skill>												
+			<type value="morph"/>		
+			<name value="morph"/>		
+			<ep-cost value="0"/>		
+			<speed value="3990"/>		
+			<anim-speed value="50"/>	
+			<animation path="../lander/lander/lander_arive.g3d"/>
+			<anim-progress-bound value="true"/>
+			<particles value="true" start-time="0.25" end-time="0.99">
+				<particle-file path="air_dust.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0.15">
+				<sound-file path="sounds/dropoff.ogg"/>
+			</sound>										
+		</skill>
+
+
+	</skills>
+
+	<!-- *** commands *** -->
+	
+	<commands>	
+
+		<command>												
+			<type value="morph"/>											
+			<name value="drop_off"/>										
+			<image path="../../../../icons/dropoff.bmp"/>	
+			<unit-requirements/>											
+			<upgrade-requirements>
+			</upgrade-requirements>
+				<ignore-resource-requirements value="true" />							
+			<morph-skill value="morph"/>										
+			<morph-unit name= "lander"/>									
+			<discount value="0"/>											
+		</command>
+
+
+
+	</commands>
+</unit>

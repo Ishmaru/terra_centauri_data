@@ -1,0 +1,182 @@
+<?xml version="1.0" standalone="no" ?>
+<unit>
+	<!-- *** parameters *** -->
+	<parameters>
+		<count-in-victory-conditions value="false"/>
+		<size value="5" />
+		<height value="8" />
+		<max-hp value="6000" regeneration="0"/>
+		<max-ep value="100"  regeneration="10"/>
+		<armor value="0" />
+		<armor-type value="metal"/>
+		<sight value="2" />
+		<time value="75" />
+		<multi-selection value="false" />
+		<cellmap value="false"/>
+		<levels/>
+		<fields>
+			<field value="land" />
+		</fields>
+		<properties>
+			<property value="burnable"/>
+		</properties>
+		<light enabled="true" red="0.1" green="0.3" blue="1.0"/>
+		<unit-requirements/>
+		<upgrade-requirements />
+		<resource-requirements>
+			<resource name="gold" amount="350" />
+			<resource name= "ore" amount="200"/>
+			<resource name="energy" amount="-150" />
+		</resource-requirements>
+		<resources-stored>
+			<resource name= "energy" amount="150" />
+			<resource name= "gold" amount="750" />								
+		</resources-stored>
+		<image path="../../../../icons/core.bmp" />
+		<image-cancel path="../../../../icons/stop.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">
+			<sound path="sounds/tech_click.wav" />
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="sounds/tech_click.wav" />
+		</command-sounds>
+   		<tags>
+			<tag value="land" />
+   		</tags>
+	</parameters>
+	
+	<attack-boosts>
+		<attack-boost name="energy">
+			<allow-multiple-boosts value="true" />
+			<radius value="14" />
+			<target value="ally"/>
+			<max-hp value="0" />
+			<max-ep value="0" regeneration="1"/>
+			<sight value="0" />
+			<attack-strenght value="0"/>
+			<attack-range value="0" />
+			<armor value="0" />
+			<move-speed value="0"/>
+			<production-speed value="400" />
+				<particles value="true">
+					<affected-particle-file path="power.xml"/>
+				</particles>
+		</attack-boost>
+	</attack-boosts>
+
+	<!-- *** skills *** -->
+	<skills>
+		<!-- *** skill 0 *** -->
+		<skill>
+			<type value="stop"/>	
+			<name value="stop_skill"/>
+			<ep-cost value="0" />
+			<speed value="50" />
+			<anim-speed value="10" />
+			<animation path="core/core.g3d" />
+			<particles value="true">
+				<particle-file path="energy_core_beam.xml"/>
+				<particle-file path="core_glow.xml"/>
+			</particles>
+			<sound enabled="false" />
+			<attack-boost name="energy" />
+		</skill>
+		
+		<!-- *** skill 1 *** -->
+		<skill>
+			<type value="be_built" />	
+			<name value="be_built_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="1" />
+			<animation path="core/built.g3d" />
+			<anim-progress-bound value="true"/>
+			<particles value="true">
+				<particle-file path="built_spark.xml"/>
+				<particle-file path="built_smoke.xml"/>
+			</particles>
+			<sound enabled="false" />
+		</skill>	
+		
+		<!-- *** skill 2 *** -->
+		<skill>
+			<type value="upgrade"/>	
+			<name value="upgrade_skill"/>	
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="10" />
+			<animation path="core/core.g3d" />
+			<particles value="true">
+				<particle-file path="energy_core_beam.xml"/>
+				<particle-file path="core_glow.xml"/>
+			</particles>
+			<sound enabled="false" />
+			<attack-boost name="energy" />
+		</skill>
+		
+		<!-- *** skill 3 *** -->
+		<skill>
+			<type value="produce"/>
+			<name value="produce_skill"/>	
+			<ep-cost value="0" />
+			<speed value="350" />
+			<anim-speed value="100" />
+			<animation path="core/core.g3d" />
+			<anim-progress-bound value="true"/>
+			<particles value="true">
+				<particle-file path="energy_core_beam.xml"/>
+				<particle-file path="core_glow.xml"/>
+			</particles>
+			<sound enabled="false" />
+			<attack-boost name="energy" />
+		</skill>	
+		
+		<!-- *** skill 4 *** -->
+		<skill>
+			<type value="die" />	
+			<name value="die_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="70" />
+			<animation path="core/boom.g3d" />
+			<particles value="true" start-time="0.0" end-time="0.6">
+				<particle-file path="expl_small.xml"/>
+				<particle-file path="expl_small2.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0">
+				<sound-file path="../barracks/sounds/tech_building_fall4.wav"/>
+			</sound>			
+			<fade value="false"/>
+			<shake enabled="true" intensity="140" duration="150" start-time="0.0">
+				<self enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+				<team enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+				<enemy enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+			</shake>
+		</skill>
+
+	</skills>
+	
+	<!-- *** commands *** -->
+	<commands>		
+
+		<command>
+			<type value="produce"/>
+			<name value="charge_battery" />
+			<image path="../../../../icons/battery.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="battery"/>
+		</command>
+		<command>
+			<type value="produce"/>
+			<name value="charge_drone" />
+			<image path="../../../../icons/drone.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="recharge_drone"/>
+		</command>
+	</commands>
+</unit>

@@ -1,0 +1,101 @@
+<?xml version="1.0" standalone="no" ?>
+<unit>
+	<!-- *** parameters *** -->
+	<parameters>
+		<count-in-victory-conditions value="false"/>
+		<size value="2" />
+		<height value="4" />
+		<max-hp value="1000" regeneration="15"/>
+		<max-ep value="1000"  regeneration="100"/>
+		<armor value="0" />
+		<armor-type value="hard"/>
+		<sight value="0" />
+		<time value="20000" />
+		<multi-selection value="false" />
+		<cellmap value="false"/>
+		<levels/>
+		<fields>
+			<field value="land" />
+		</fields>
+		<properties>
+		</properties>
+		<light enabled="true" red="0" green="1.0" blue="0"/>
+		<unit-requirements>
+		</unit-requirements>
+		<upgrade-requirements />
+		<resource-requirements>
+		</resource-requirements>
+		<resources-stored>
+		</resources-stored>
+		<image path="../../../../icons/core.bmp" />
+		<image-cancel path="../../../../icons/stop.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">
+			<sound path="sounds/tech_click.wav" />
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="sounds/tech_click.wav" />
+		</command-sounds>
+	</parameters>
+	
+	<attack-boosts>
+		<attack-boost name="energy">
+			<allow-multiple-boosts value="true" />
+			<radius value="9" />
+			<target value="all"/>
+			<max-hp value="0"  regeneration="15"/>
+			<max-ep value="0"/>
+			<sight value="0" />
+			<attack-strenght value="0"/>
+			<attack-range value="0" />
+			<armor value="0" />
+			<move-speed value="0"/>
+			<production-speed value="0" />
+				<particles value="true">
+					<affected-particle-file path="heal.xml"/>
+					<affected-particle-file path="heal2.xml"/>
+				</particles>
+		</attack-boost>
+	</attack-boosts>
+
+	<!-- *** skills *** -->
+	<skills>
+		<!-- *** skill 0 *** -->
+		<skill>
+			<type value="stop"/>	
+			<name value="stop_skill"/>
+			<ep-cost value="0" />
+			<speed value="50" />
+			<anim-speed value="10" />
+			<animation path="lifestone/lifestone.g3d" />
+			<particles value="true">
+				<particle-file path="stone_glow1.xml"/>
+				<particle-file path="stone_glow2.xml"/>
+				<particle-file path="stone_glow3.xml"/>
+				<particle-file path="stone_glow4.xml"/>
+				<particle-file path="stone_glow5.xml"/>
+				<particle-file path="stone_glow6.xml"/>
+				<particle-file path="life_twinkle.xml"/>
+			</particles>
+			<sound enabled="false" />
+			<attack-boost name="energy" />
+		</skill>
+		
+		<!-- *** skill 4 *** -->
+		<skill>
+			<type value="die" />	
+			<name value="die_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="70" />
+			<animation path="lifestone/lifestone.g3d" />
+			<sound enabled="false"/>		
+			<fade value="true"/>
+		</skill>
+
+	</skills>
+	
+	<!-- *** commands *** -->
+	<commands>		
+	</commands>
+</unit>

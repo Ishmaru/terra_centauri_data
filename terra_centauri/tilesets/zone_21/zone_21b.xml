@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+
+<tileset>
+	<surfaces>
+		<surface partsize="128">
+			<texture path="textures/rock2.png"/>
+                </surface>
+		<surface partsize="128">
+			<texture path="textures/volcanic2.png"/>
+                </surface>
+		<surface partsize="128">
+			<texture path="textures/way2.png"/>
+                </surface>
+		<surface partsize="128">
+			<texture path="textures/crack.png"/>
+                </surface>
+		<surface partsize="128">
+			<texture path="textures/sand1.png"/>
+                </surface>
+		<surface partsize="128">
+			<texture path="textures/rock1.png"/>
+                </surface>
+	</surfaces>
+
+	<objects>
+	<object walkable="false">
+		<model path="models/alienplants/shrub1.g3d" anim-speed="15" smoothTwoFrameAnim="true"/>
+		<model path="models/alienplants/shrub2.g3d" anim-speed="15" smoothTwoFrameAnim="true"/>
+		<model path="models/alienplants/shrub3.g3d" anim-speed="15" smoothTwoFrameAnim="true"/>
+		<model path="models/alienplants/shrub4.g3d" anim-speed="15" smoothTwoFrameAnim="true"/>
+		<model path="models/alienplants/shrub5.g3d" anim-speed="15" smoothTwoFrameAnim="true"/>
+		<model path="models/alienplants/shrub6.g3d" anim-speed="15" smoothTwoFrameAnim="true"/>
+		<model path="models/alienplants/shrub7.g3d" anim-speed="15" smoothTwoFrameAnim="true"/>
+		<model path="models/alienplants/shrub8.g3d" anim-speed="15" smoothTwoFrameAnim="true"/>
+		<model path="models/alienplants/shrub9.g3d" anim-speed="15" smoothTwoFrameAnim="true"/>
+		<model path="models/alienplants/shrub10.g3d" anim-speed="15" smoothTwoFrameAnim="true"/>
+		<model path="models/alienplants/shrub11.g3d" anim-speed="15" smoothTwoFrameAnim="true"/>
+		<model path="models/alienplants/shrub12.g3d" anim-speed="15" smoothTwoFrameAnim="true"/>
+		<model path="models/alienplants/shrub13.g3d" anim-speed="15" smoothTwoFrameAnim="true"/>
+		<model path="models/alienplants/shrub14.g3d" anim-speed="15" smoothTwoFrameAnim="true"/>
+		<model path="models/alienplants/plant1.g3d" anim-speed="15" smoothTwoFrameAnim="true"/>
+		<model path="models/alienplants/plant2.g3d" anim-speed="15" smoothTwoFrameAnim="true"/>
+		<model path="models/alienplants/plant3.g3d" anim-speed="15" smoothTwoFrameAnim="true"/>
+		<model path="models/alienplants/tree.g3d" anim-speed="15" smoothTwoFrameAnim="true"/>
+	</object>								
+	<object walkable="false">
+		<model path="models/grass.g3d">
+			<particles value="true">
+				<particle-file path="twinkle.xml"/>
+			</particles>
+		</model>
+	</object>					
+	<object walkable="false">
+		<model path="models/city/mech1.g3d">
+			<rotationAllowed value="false" />
+			<randomPositionEnabled value="false" />
+		</model>
+	</object>					
+	<object walkable="true">
+		<model path="models/none.g3d"/>
+		</object>					
+                <object walkable="true">
+		<model path="models/none.g3d"/>
+	</object>										
+	<object walkable="true">
+		<model path="models/none.g3d">
+			<particles value="true">
+				<particle-file path="twinkle.xml"/>
+			</particles>
+		</model>
+		<model path="models/grass.g3d"/>
+		<model path="models/none.g3d"/>
+		<model path="models/grass.g3d"/>
+		<model path="models/none.g3d"/>
+
+	</object>					
+	<object walkable="false">
+		<model path="models/mountains/mountain1.g3d"/>
+		<model path="models/mountains/mountain2.g3d"/>
+		<model path="models/mountains/mountain3.g3d"/>
+		<model path="models/mountains/mountain4.g3d"/>
+	</object>			
+	<object walkable="false">
+		<model path="models/obelisk.g3d">
+			<particles value="true">
+				<particle-file path="twinkle.xml"/>
+			</particles>
+		</model>
+	</object>					
+	<object walkable="false">
+		<model path="models/big_stone.g3d"/>
+		<model path="models/big_stone.g3d"/>
+		<model path="models/big_stone.g3d"/>
+		<model path="models/vent.g3d">
+			<particles value="true">
+				<particle-file path="vent.xml"/>
+			</particles>
+		</model>
+		<model path="models/big_stone.g3d">
+			<particles value="true">
+				<particle-file path="fog.xml"/>
+			</particles>
+		</model>
+	</object>					
+	<object walkable="false">
+		<model path="models/none.g3d"/>
+	</object>					
+	</objects>
+	
+	<ambient-sounds>
+		<day-sound enabled="true" path="sounds/daytime.wav" play-always="false"/>
+		<night-sound enabled="true" path="sounds/night.wav" play-always="false"/>
+		<rain-sound enabled="true" path="sounds/rain.ogg"/>
+		<snow-sound enabled="false"/>		
+		<day-start-sound enabled="true" path="sounds/nightday.wav"/>	
+		<night-start-sound enabled="true" path="sounds/nightday.wav"/>						
+	</ambient-sounds>
+
+	<parameters>
+		<water effects="true">
+			<texture path="textures/water_001.tga"/>
+			<texture path="textures/water_002.tga"/>
+			<texture path="textures/water_003.tga"/>
+			<texture path="textures/water_004.tga"/>
+			<texture path="textures/water_005.tga"/>
+			<texture path="textures/water_006.tga"/>
+			<texture path="textures/water_007.tga"/>
+			<texture path="textures/water_008.tga"/>
+			<texture path="textures/water_009.tga"/>
+			<texture path="textures/water_010.tga"/>
+			<texture path="textures/water_011.tga"/>
+			<texture path="textures/water_012.tga"/>
+			<texture path="textures/water_013.tga"/>
+			<texture path="textures/water_014.tga"/>
+			<texture path="textures/water_015.tga"/>
+			<texture path="textures/water_016.tga"/>
+		</water>
+		<fog enabled="true" mode="2" density="0.019" color-red="0.0" color-green="0.8" color-blue="0.3" />
+		<sun-light red="0.6" green="0.3" blue="1.0"/>
+		<moon-light red="0.4" green="0.4" blue="1"/>
+		<day-night value="0.7"/>
+		<weather sun="0.1" rain="0.9" snow="0"/> 
+	</parameters>
+</tileset>
+

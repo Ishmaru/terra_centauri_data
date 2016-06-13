@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="yes"?>
+<projectile-particle-system>
+    	<texture value="true" path="images/lightning.bmp" luminance="true"/>
+    	<model value="false"/>
+	<primitive value="quad"/>
+	<offset x="0" y="-.7" z="1"/>
+	<color red="0.8" green="1" blue="0.8" alpha="0.8" />
+	<color-no-energy red="0.1" green="1" blue="0.1" alpha="0.0" />
+    	<size value="1" />
+    	<size-no-energy value="0.5" />
+    	<speed value="0.0" />
+	<gravity value="0"/>
+    	<emission-rate value="15" />
+    	<energy-max value="15" />
+    	<energy-var value="0" />
+	
+	<trajectory type="spiral">
+		<speed value="30.0"/>
+		<scale value="0.5"/>
+		<frequency value="20"/>
+	</trajectory>
+</projectile-particle-system>

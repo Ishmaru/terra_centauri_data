@@ -1,0 +1,186 @@
+<?xml version="1.0" standalone="yes" ?> 
+<scenario>
+	<difficulty value="2"/>
+	<players>
+		<player control="human" resource_multiplier="1.0" faction="devourer_player" team="1"/>
+		<player control="cpu-mega" resource_multiplier="3.0" faction="valkyre" team="2"/>
+		<player control="cpu" faction="enviroment" team="9"/>
+		<player control="cpu" faction="valkyre" team="2"/>
+		<player control="cpu" faction="enviroment" team="2"/>	
+		<player control="cpu" faction="valkyre" team="2"/>		
+	</players>
+	<map value="swamp3"/>
+	<tileset value="zone_63"/>
+	<tech-tree value="zone_orion2"/>
+	<default-resources value="true"/>
+	<default-units value="true"/>
+	<default-victory-conditions value="true"/>	
+<scripts>
+	<startup>
+		createUnit('cave', 0, startLocation(0))
+		createUnit('nest', 0, startLocation(0))
+		createUnit('nest', 0, startLocation(0))
+		createUnit('evolution_tower', 0, startLocation(0))
+		createUnit('cannon', 0, startLocation(0))
+		createUnit('cannon', 0, startLocation(0))
+		giveResource('meat', 0, 300);
+	createUnitNoSpacing('start', 1, {startLocation(1)[1] - 2, startLocation(1)[2] - 8})
+		createUnit('barracks', 5, startLocation(5))
+		createUnit('transport', 5, startLocation(5))
+			giveResource('gold', 5, 700);
+			giveResource('ore', 5, 400);
+		createUnit('barracks', 3, startLocation(3))
+		createUnit('transport', 3, startLocation(3))
+			giveResource('gold', 3, 700);
+			giveResource('ore', 3, 400);
+
+	disableAi(2)
+	disableAi(4)
+
+	for i=1, 6 do
+		x = math.random(250)
+		y = math.random(250)
+		createUnit('evolution_stone', 4, {x, y})
+	end		
+	for i=1, 3 do
+		x = math.random(250)
+		y = math.random(250)
+		createUnitNoSpacing('energy_vortex', 2, {x, y})
+	end
+	for i=1, 8 do
+		x = math.random(250)
+		y = math.random(250)
+		createUnitNoSpacing('life_stone', 2, {x, y})
+	end
+
+	for i=1, 15 do
+			x = math.random(250)
+			y = math.random(250)
+		for i=1, 5 do
+			createUnitNoSpacing('jelly', 4, {x, y})
+		end
+	end
+	for i=1, 25 do
+			x = math.random(250)
+			y = math.random(250)
+			createUnitNoSpacing('mine', 4, {x, y})
+	end
+	showMessage('intro', 'start')
+	</startup>	
+	<unitDied>
+		ko = lastDeadUnitKiller()
+
+	if lastDeadUnitName()=='life_stone' then
+		giveKills(ko, -1)
+	end
+	if lastDeadUnitName()=='energy_vortex' then
+		giveKills(ko, -1)
+	end
+	if lastDeadUnitName()=='worker' then
+		giveResource('organic', 0, 0);
+		giveResource('meat', 0, 25);
+	end
+	if lastDeadUnitName()=='lancer' then
+		giveResource('organic', 0, 0);
+		giveResource('meat', 0, 25);
+	end
+	if lastDeadUnitName()=='scout' then
+		giveResource('organic', 0, 0);
+		giveResource('meat', 0, 25);
+	end
+	if lastDeadUnitName()=='rifle' then
+		giveResource('organic', 0, 0);
+		giveResource('meat', 0, 25);
+	end
+	if lastDeadUnitName()=='beam' then
+		giveResource('organic', 0, 0);
+		giveResource('meat', 0, 25);
+	end
+	if lastDeadUnitName()=='rocket' then
+		giveResource('organic', 0, 0);
+		giveResource('meat', 0, 25);
+	end
+	if lastDeadUnitName()=='jetpack' then
+		giveResource('organic', 0, 0);
+		giveResource('meat', 0, 25);
+	end
+	if lastDeadUnitName()=='phalis' then
+		giveResource('organic', 0, 0);
+		giveResource('meat', 0, 25);
+			x = math.random(250)
+			y = math.random(250)
+			createUnitNoSpacing('phalis', 4, {x, y})
+	end
+	if lastDeadUnitName()=='jelly' then
+		giveResource('organic', 0, 0);
+		giveResource('meat', 0, 15);
+			x = math.random(250)
+			y = math.random(250)
+			createUnitNoSpacing('jelly', 4, {x, y})
+	end
+	if lastDeadUnitName()=='drop_pod' then
+		giveKills(ko, -1)
+	end
+		if lastDeadUnitName()=='captured' then
+			giveKills(ko, -1)
+			giveResource('organic', 0, 0);
+			giveResource('meat', 0, 25);
+		end
+		if lastDeadUnitName()=='captured_' then
+			giveResource('organic', 0, 0);
+			giveResource('meat', 0, 25);
+			giveKills(ko, -1)
+		end
+		if unitCountOfType(0, 'cave')==0 and unitCountOfType(0, 'nest') then
+			clearDisplayText()
+			setPlayerAsWinner(1)
+			endGame()
+		end
+		if unitCountOfType(1, 'lander')==0 and unitCountOfType(1, 'barracks') and unitCountOfType(1, 'factory') then
+			clearDisplayText()
+			setPlayerAsWinner(0)
+			endGame()
+		end
+			if lastDeadUnitName()=='evolution_stone' then
+			giveKills(ko, -1)
+			killer=lastDeadUnitKiller()
+			faction=unitFaction(killer)
+				if faction==0 then
+					addConsoleText("evol")
+					giveResource('evolution', 0, 1);
+					giveKills(ko, 30)
+				end
+			end
+	if lastDeadUnitName()=='civilian' then
+		giveResource('organic', 0, 0);
+		giveResource('meat', 0, 25);
+	end
+	if lastDeadUnitName()=='civilian_' then
+		giveResource('organic', 0, 0);
+		giveResource('meat', 0, 25);
+	end
+	if lastDeadUnitName()=='civilian__' then
+		giveResource('organic', 0, 0);
+		giveResource('meat', 0, 25);
+	end
+	</unitDied>
+	<unitCreatedOfType type="lander">
+		for i=1, 5 do
+			createUnitNoSpacing('worker', 1, startLocation(1))
+		end
+		giveResource('gold', 1, 1000);
+		giveResource('ore', 1, 750);
+	</unitCreatedOfType>
+	<unitCreatedOfType type="start">
+		start=lastCreatedUnit ()
+		morphToUnit(start, 'drop_off', 0)
+	</unitCreatedOfType>
+<resourceHarvested>
+	convert = resourceAmount("organic", 0) 
+	if resourceAmount('organic', 0)>=10 then
+			giveResource('meat', 0, 1);
+			giveResource('organic', 0, -10);
+	end
+</resourceHarvested>
+</scripts>
+</scenario>

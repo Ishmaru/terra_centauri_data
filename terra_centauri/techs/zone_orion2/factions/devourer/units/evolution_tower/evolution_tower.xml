@@ -1,0 +1,106 @@
+<?xml version="1.0" standalone="no" ?>
+<unit>
+	<!-- *** parameters *** -->
+	<parameters>
+		<size value="5" />
+		<height value="5" />
+		<max-hp value="4000" regeneration="20"/>
+		<max-ep value="100"  regeneration="1"/>
+		<max-unit-count value="1"/>	
+		<armor value="100" />
+		<armor-type value="normal"/>				
+		<sight value="1" />
+		<time value="100" />
+		<multi-selection value="false" />
+		<cellmap value="true">
+		<row value="00000"/> 
+		<row value="01110"/> 
+		<row value="01110"/>
+		<row value="01110"/>
+		<row value="00000"/>
+		</cellmap>
+		<levels/>
+		<fields>
+			<field value="land" />
+		</fields>
+		<properties>
+		</properties>
+		<light enabled="false"/>
+		<unit-requirements/>				
+		<upgrade-requirements />
+		<resource-requirements>
+		</resource-requirements>
+		<resources-stored>				
+		</resources-stored>
+		<image path="../../../../icons/evo.bmp" />
+		<image-cancel path="../cave/images/meeting_point.bmp"/>
+		<meeting-point value="true" image-path="../cave/images/meeting_point.bmp"/>
+		<selection-sounds enabled="true">
+		</selection-sounds>
+		<command-sounds enabled="true">
+		</command-sounds>
+		<tag value="land" />
+		<tag value="devourer" />
+	</parameters>
+	
+	<!-- *** skills *** -->
+	<skills>
+
+		<skill>
+			<type value="stop" />
+			<name value="stop_skill"/>		
+			<ep-cost value="0" />
+			<speed value="100" />
+			<anim-speed value="100" />
+			<animation path="models/evolutiontower.g3d" />
+			<sound enabled="false" />
+			<attack-boost>
+				<allow-multiple-boosts value="false" />
+				<radius value="50"/>
+                <target value="ally" include-self="true">
+                	<tag name="devourer" />
+				</target>
+				<max-hp value="0"  regeneration="8"/>
+				<max-ep value="0"  regeneration="1"/>
+				<sight value="0"/>
+				<attack-strenght value="25" value-percent-multiplier="true"/>
+				<attack-range value="0"/>
+				<armor value="0"/>
+				<move-speed value="25" value-percent-multiplier="true"/>
+				<production-speed value="0"/>
+				<particles value="true">
+					<affected-particle-file path="boost.xml"/>
+				</particles>
+            </attack-boost>
+		</skill>
+		
+		<skill>
+			<type value="be_built" />
+			<name value="be_built_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="1" />
+			<animation path="models/evolutiontower.g3d" />
+			<sound enabled="false" />
+		</skill>	
+		
+		<skill>
+			<type value="die" />
+			<name value="die_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="300" />
+			<animation path="models/evolutiontower.g3d" />
+			<sound enabled="true" start-time="0">
+			</sound>			
+			<fade value="true"/>
+		</skill>
+
+	</skills>
+	
+	<!-- *** commands *** -->
+	
+	<commands>			
+		
+	</commands>
+</unit>

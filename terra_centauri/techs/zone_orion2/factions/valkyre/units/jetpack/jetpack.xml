@@ -1,0 +1,234 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+
+	<!-- *** parameters *** -->
+
+	<parameters>
+		<size value="1"/>
+		<height value="0"/>
+		<max-hp value="400" regeneration="1"/>
+		<max-ep value="80" regeneration="1"/>
+		<armor value="10"/>	
+		<armor-type value="normal"/>				
+		<sight value="10"/>
+		<time value="100"/>	
+		<multi-selection value="true"/>	
+		<cellmap value="false"/>
+		<levels>
+			<level name="rookie" kills="3"/>
+			<level name="experienced" kills="6"/>
+			<level name="veteran" kills="12"/>
+			<level name="elite" kills="24"/>
+			<level name="heroic" kills="48"/>
+		</levels>
+		<fields>
+			<field value="air"/>
+		</fields>	
+		<properties/>
+		<light enabled="false"/>
+		<unit-requirements/>
+		<upgrade-requirements/>
+		<resource-requirements>
+			<resource name="gold" amount="250"/>
+			<resource name= "ore" amount="75"/>
+			<resource name= "energy" amount="15"/>
+			<resource name="housing" amount="1" />
+		</resource-requirements>
+		<resources-stored/>
+		<image path="../../../../icons/jet.bmp"/>
+		<image-cancel path="../../../../icons/stop.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">	
+		</selection-sounds>
+		<command-sounds enabled="true">
+		</command-sounds>
+   		<tags>
+			<tag value="air" />
+			<tag value="organic" />
+    		</tags>
+	</parameters>
+
+
+	<!-- *** skills *** -->
+
+	<skills>
+	
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="30"/>
+			<animation path="jet/jetstand2.g3d"/>
+			<animation path="jet/jetstand3.g3d"/>
+			<animation path="jet/jetstand.g3d"/>
+			<particles value="true">
+				<particle-file path="air_dust.xml"/>
+				<particle-file path="fan_blow.xml"/>
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+	
+	
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="550"/>
+			<anim-speed value="120"/>
+			<animation path="jet/jetboost.g3d"/>
+			<particles value="true">
+				<particle-file path="air_dust.xml"/>
+				<particle-file path="fan_blow.xml"/>
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="boost_skill"/>		
+			<ep-cost value="3"/>
+			<speed value="600"/>
+			<anim-speed value="120"/>
+			<animation path="jet/jetboost.g3d"/>
+			<particles value="true">
+				<particle-file path="air_dust.xml"/>
+				<particle-file path="boost_beam.xml"/>
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="attack"/>
+			<name value="attack_air_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="300"/>
+			<anim-speed value="40"/>
+			<animation path="jet/jetshoot.g3d"/>
+			<particles value="true" start-time="0.15" end-time="0.60">
+				<particle-file path="gun_muzzle.xml"/>
+				<particle-file path="grunt_mflash.xml"/>
+				<particle-file path="air_dust.xml"/>
+				<particle-file path="fan_blow.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0.15">
+				<sound-file path="shoot.wav"/>
+			</sound>
+			<attack-strenght value="300"/>
+			<attack-var value="100"/>
+			<attack-range value="6"/>
+			<attack-type value="pierce"/>
+			<attack-start-time value="0.25"/>
+			<attack-fields>
+				<field value="air"/>
+			</attack-fields>
+			<projectile value="false"/>
+			<splash value="true">
+				<radius value="1"/>
+				<damage-all value="true"/>
+				<particle value="true" path="gun_hit.xml"/>
+
+			</splash>
+		</skill>
+
+		<skill>
+			<type value="attack"/>
+			<name value="attack_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="300"/>
+			<anim-speed value="40"/>
+			<animation path="jet/jetshoot.g3d"/>
+			<particles value="true" start-time="0.15" end-time="0.60">
+				<particle-file path="gun_muzzle.xml"/>
+				<particle-file path="grunt_mflash.xml"/>
+				<particle-file path="air_dust.xml"/>
+				<particle-file path="fan_blow.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0.15">
+				<sound-file path="shoot.wav"/>
+			</sound>
+			<attack-strenght value="200"/>
+			<attack-var value="100"/>
+			<attack-range value="5"/>
+			<attack-type value="pierce"/>
+			<attack-start-time value="0.25"/>
+			<attack-fields>
+				<field value="land"/>
+				<field value="air"/>
+			</attack-fields>
+			<projectile value="false"/>
+			<splash value="true">
+				<radius value="0"/>
+				<damage-all value="true"/>
+				<particle value="true" path="gun_hit.xml"/>
+
+			</splash>
+		</skill>
+
+
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="60"/>
+			<anim-speed value="70"/>
+			<animation path="jet/eaten.g3d"/>
+			<sound enabled="true" start-time="0">
+				<sound-file path="sounds/worker_die1.wav"/>
+				<sound-file path="sounds/worker_die2.wav"/>					
+			</sound>				
+			<fade value="false"/>
+		</skill>
+
+
+
+
+	</skills>
+
+	<!-- *** commands *** -->
+	
+	<commands>
+		
+		<command>
+			<type value= "stop"/>
+			<name value="stop"/>
+			<image path="../../../../icons/stop.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+		<command>
+			<type value="move"/>
+			<name value="move"/>
+			<image path="../../../../icons/move.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+		</command>
+
+
+		<command>
+			<type value="attack"/>
+			<name value="attack"/>
+			<image path="../../../../icons/attack.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+
+		<command>
+			<type value="attack_stopped"/>
+			<name value="hold_position"/>
+			<image path="../../../../icons/hold.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+
+
+	</commands>
+</unit>

@@ -1,0 +1,245 @@
+<?xml version="1.0" standalone="yes" ?> 
+<scenario>
+	<difficulty value="2"/>
+	<players>
+		<player control="cpu-mega" resource_multiplier="1.0" faction="devourer" team="1"/>
+		<player control="human" faction="valkyre" team="2"/>
+		<player control="cpu" faction="enviroment" team="9"/>
+		<player control="cpu" faction="hostile" team="4"/>	
+	</players>
+	<map value="forest"/>
+	<tileset value="zone_21"/>
+	<tech-tree value="zone_orion2"/>
+	<default-resources value="true"/>
+	<default-units value="true"/>
+	<default-victory-conditions value="true"/>	
+<scripts>
+	<startup>
+	createUnitNoSpacing('start', 1, {startLocation(1)[1] - 2, startLocation(1)[2] - 8})
+	disableAi(4)
+	ai = math.random(3)
+	if ai ==1 then
+		createUnit('1', 0, {0, 0})
+	elseif ai ==2 then
+		createUnit('2', 0, {0, 0})
+	elseif ai ==3 then		
+		createUnit('3', 0, {0, 0})
+	end
+	createUnitNoSpacing('defense_point', 2, {32, 156})
+	createUnitNoSpacing('defense_point', 2, {94, 196})
+	createUnitNoSpacing('defense_point', 2, {130, 54})
+	createUnitNoSpacing('defense_point', 2, {120, 50})
+	createUnitNoSpacing('defense_point', 2, {208, 124})
+	createUnitNoSpacing('defense_point', 2, {198, 156})
+	createUnitNoSpacing('auto_turret', 1, {88, 162})
+	on=lastCreatedUnit ()
+	giveAttackStoppedCommand(on, 'hold_position', 1)
+	createUnitNoSpacing('auto_turret', 1, {80, 162})
+	on=lastCreatedUnit ()
+	giveAttackStoppedCommand(on, 'hold_position', 1)
+	createUnitNoSpacing('auto_turret', 1, {108, 172})
+	on=lastCreatedUnit ()
+	giveAttackStoppedCommand(on, 'hold_position', 1)
+	createUnitNoSpacing('auto_turret', 1, {106, 164})
+	on=lastCreatedUnit ()
+	giveAttackStoppedCommand(on, 'hold_position', 1)
+	for i=1, 5 do
+		x = math.random(250)
+		y = math.random(250)
+		createUnit('evolution_stone', 3, {x, y})
+	end
+	for i=1, 3 do
+		x = math.random(250)
+		y = math.random(250)
+		createUnit('cannon', 0, {x, y})
+		createUnit('nest', 0, {x, y})
+	end
+	createUnitNoSpacing('chest', 0, {8, 202})
+	createUnitNoSpacing('chest_', 0, {8, 202})
+	createUnitNoSpacing('chest__', 0, {8, 202})
+	createUnitNoSpacing('chest__', 0, {8, 202})
+	for i=1, 3 do
+		x = math.random(250)
+		y = math.random(250)
+		createUnitNoSpacing('drop_pod', 0, {x, y})
+	end
+for i=1, 4 do
+	x = math.random(250)
+	y = math.random(250)
+	createUnitNoSpacing('energy_vortex', 2, {x, y})
+end
+for i=1, 4 do
+	x = math.random(250)
+	y = math.random(250)
+	createUnitNoSpacing('life_stone', 2, {x, y})
+end
+for i=1, 4 do
+	x = math.random(250)
+	y = math.random(250)
+	createUnitNoSpacing('chest', 0, {x, y})
+end
+for i=1, 4 do
+	x = math.random(250)
+	y = math.random(250)
+	createUnitNoSpacing('chest_', 0, {x, y})
+end
+for i=1, 4 do
+	x = math.random(250)
+	y = math.random(250)
+	createUnitNoSpacing('chest__', 0, {x, y})
+end
+	x = math.random(250)
+	y = math.random(250)
+for i=1, 6 do
+	createUnit('phalis', 2, {x, y})
+end
+for i=1, 6 do
+	x = math.random(250)
+	y = math.random(250)
+	createUnit('phalis', 2, {x, y})
+end
+
+
+			disableAi(2)
+			showMessage('intro', 'start')
+	</startup>	
+	<unitDied>
+		ko = lastDeadUnitKiller()
+	if lastDeadUnitName()=='chest' then
+		addConsoleText("chesta")
+		giveResource('gold', 1, 300);
+	end
+	if lastDeadUnitName()=='chest_' then
+		addConsoleText("chestb")
+		giveResource('ore', 1, 300);
+	end
+	if lastDeadUnitName()=='chest__' then
+		addConsoleText("chestc")
+		giveKills(ko, 20)
+
+	end
+	if lastDeadUnitName()=='life_stone' then
+		addConsoleText("lifestone")
+		giveResource('gold', 1, 500);
+
+	end
+	if lastDeadUnitName()=='energy_vortex' then
+		addConsoleText("vortex")
+		giveResource('gold', 1, 500);
+	end
+	if lastDeadUnitName()=='worker' then
+		giveResource('organic', 0, 50);
+	end
+	if lastDeadUnitName()=='lancer' then
+		giveResource('organic', 0, 50);
+	end
+	if lastDeadUnitName()=='rifle' then
+		giveResource('organic', 0, 50);
+	end
+	if lastDeadUnitName()=='beam' then
+		giveResource('organic', 0, 50);
+	end
+	if lastDeadUnitName()=='rocket' then
+		giveResource('organic', 0, 50);
+	end
+	if lastDeadUnitName()=='jetpack' then
+		giveResource('organic', 0, 50);
+	end
+	if lastDeadUnitName()=='drop_pod' then
+		random = math.random(5)
+		pod=lastDeadUnit()
+		x2=unitPosition(pod)[1]
+		y2=unitPosition(pod)[2]
+    		if random ==1 then
+			addConsoleText("silo")
+			createUnitNoSpacing('silo', 1, {x2, y2})
+			silo=lastCreatedUnit ()
+			on=lastCreatedUnit ()
+			giveAttackStoppedCommand(on, 'hold_position', 1)	
+   		 elseif random ==2 then
+			addConsoleText("uplink")
+			createUnitNoSpacing('orbital_uplink', 1, {x2, y2})
+			on=lastCreatedUnit ()
+			giveAttackStoppedCommand(on, 'hold_position', 1)
+   		 elseif random ==3 then
+			addConsoleText("tank")
+			createUnitNoSpacing('tank', 1, {x2, y2})
+   		 elseif random ==4 then
+			createUnitNoSpacing('upgrades', 1, {0,0})
+			upgrade=lastCreatedUnit ()
+			random = math.random(4)
+			if random ==1 then
+				giveUpgradeCommand(upgrade, 'nano_bots')
+				addConsoleText("upgrade1")
+			elseif random==2 then
+				giveUpgradeCommand(upgrade, 'a_p_bullets')
+				addConsoleText("upgrade2")
+			elseif random==3 then
+				giveUpgradeCommand(upgrade, 'compressed_energy')
+				addConsoleText("upgrade3")
+			elseif random==4 then
+				giveUpgradeCommand(upgrade, 'improved_shielding')
+				addConsoleText("upgrade4")
+			end
+      		 elseif random ==5 then
+			createUnitNoSpacing('upgrades', 1, {0,0})
+			upgrade=lastCreatedUnit ()
+			random = math.random(4)
+			if random ==1 then
+				giveUpgradeCommand(upgrade, 'nano_bots')
+				addConsoleText("upgrade1")
+			elseif random==2 then
+				giveUpgradeCommand(upgrade, 'a_p_bullets')
+				addConsoleText("upgrade2")
+			elseif random==3 then
+				giveUpgradeCommand(upgrade, 'compressed_energy')
+				addConsoleText("upgrade3")
+			elseif random==4 then
+				giveUpgradeCommand(upgrade, 'improved_shielding')
+				addConsoleText("upgrade4")
+			end
+    		end		
+	end
+		if lastDeadUnitName()=='captured' then
+			addConsoleText("free")
+			free=lastDeadUnit()
+			x2=unitPosition(free)[1]
+			y2=unitPosition(free)[2]
+			createUnitNoSpacing('worker', 1, {x2, y2})
+		end
+		if lastDeadUnitName()=='captured_' then
+			addConsoleText("free")
+			free=lastDeadUnit()
+			x2=unitPosition(free)[1]
+			y2=unitPosition(free)[2]
+			createUnitNoSpacing('worker', 1, {x2, y2})
+		end
+		if unitCountOfType(0, 'cave')==0 and unitCountOfType(0, 'nest') then
+			clearDisplayText()
+			setPlayerAsWinner(1)
+			endGame()
+		end
+			if lastDeadUnitName()=='evolution_stone' then
+			giveKills(ko, -1)
+			killer=lastDeadUnitKiller()
+			faction=unitFaction(killer)
+				if faction==1 then
+					addConsoleText("evol")
+					giveResource('evolution', 1, 1);
+				end
+			end
+	</unitDied>
+	<unitCreatedOfType type="lander">
+			createUnitNoSpacing('transport', 1, startLocation(1))
+		for i=1, 5 do
+			createUnitNoSpacing('worker', 1, startLocation(1))
+		end
+		giveResource('gold', 1, 1000);
+		giveResource('ore', 1, 750);
+	</unitCreatedOfType>
+	<unitCreatedOfType type="start">
+		start=lastCreatedUnit ()
+		morphToUnit(start, 'drop_off', 0)
+	</unitCreatedOfType>
+</scripts>
+</scenario>

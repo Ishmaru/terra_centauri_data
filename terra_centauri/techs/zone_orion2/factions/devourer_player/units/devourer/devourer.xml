@@ -1,0 +1,299 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+	<parameters>
+		<count-in-victory-conditions value="false"/>
+		<size value="2"/>
+		<height value="3"/>
+		<max-hp value="1000" regeneration="4"/>
+		<max-ep value="0" regeneration="1"/>
+		<armor value="60"/>	
+		<armor-type value="normal"/>				
+		<sight value="10"/>
+		<time value="20"/>	
+		<multi-selection value="true"/>	
+		<cellmap value="false"/>
+		<levels>
+			<level name="taste_blood" kills="1"/>
+			<level name="carnivore" kills="5"/>
+			<level name="ptreditor" kills="15"/>
+		</levels>
+		<fields>
+			<field value="land"/>
+		</fields>
+		<properties>
+			<property value="rotated_climb"/>	
+		</properties>
+		<light enabled="false"/>
+		<unit-requirements>
+		</unit-requirements>
+		<upgrade-requirements/>
+		<resource-requirements>	
+		<resource name="meat" amount="1" />
+		</resource-requirements>
+		<resources-stored>
+			<resource name= "organic" amount="10"/>								
+		</resources-stored>
+		<image path="../../../../icons/devourer.bmp"/>
+		<image-cancel path="images/swordman_attack.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">
+			<sound path="sounds/sel1.wav"/>
+			<sound path="sounds/sel2.wav"/>
+			<sound path="sounds/sel3.wav"/>
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="sounds/sel1.wav"/>
+			<sound path="sounds/sel2.wav"/>
+			<sound path="sounds/sel3.wav"/>
+		</command-sounds>
+   		<tags>
+			<tag value="land" />
+			<tag value="organic" />
+			<tag value="devourer" />
+   		</tags>
+	</parameters>
+
+	<skills>
+	
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="45"/>
+			<animation path="models/vore_stand.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="180"/>
+			<anim-speed value="100"/>
+			<animation path="models/vore_run.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="be_built" />	
+			<name value="be_built_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="300" />
+			<animation path="models/vore_run.g3d" />
+			<sound enabled="false" />
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="charge_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="180"/>
+			<anim-speed value="100"/>
+			<animation path="models/vore_run.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="attack"/>
+			<name value="attack_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="100"/>
+			<anim-speed value="50"/>
+			<animation path="models/vore_eat.g3d"/>
+			<sound enabled="true" start-time="0.25">
+				<sound-file path="sounds/attack2.wav"/>
+			</sound> 
+			<attack-strenght value="450"/>
+			<attack-var value="200"/>
+			<attack-range value="1"/>
+			<attack-type value="eat"/>
+			<attack-fields>
+				<field value="land"/>
+			</attack-fields>
+			<attack-start-time value="0.25"/>
+			<projectile value="false"/>
+			<splash value="false"/>
+			<shake enabled="true" intensity="80" duration="80" start-time="0.41">
+				<self enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+				<team enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+				<enemy enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+			</shake>
+		</skill>	
+
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="60"/>
+			<anim-speed value="60"/>
+			<animation path="models/vore_stand.g3d"/>
+			<particles value="true" start-time="0.0" end-time="0.1">
+				<particle-file path="splat.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0">
+				<sound-file path="sounds/die1.ogg"/>
+				<sound-file path="sounds/die2.wav"/>
+				<sound-file path="sounds/die3.ogg"/>
+			</sound>			
+			<fade value="true"/>
+		</skill>
+
+
+		<skill>
+			<type value="harvest"/>
+			<name value="mine_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="100"/>
+			<anim-speed value="50"/>
+			<animation path="models/vore_eat.g3d"/>
+			<sound enabled="true" start-time="0.5">
+				<sound-file path="sounds/attack2.wav"/>
+			</sound>
+		</skill>
+
+		<skill>
+			<type value="build"/>
+			<name value="build_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="225"/>
+			<anim-speed value="90"/>
+			<animation path="models/vore_eat.g3d"/>
+			<sound enabled="true" start-time="0.5">
+			</sound>
+		</skill>
+
+		<skill>
+			<type value="produce" />
+			<name value="produce_skill"/>		
+			<ep-cost value="0" />
+			<speed value="225" />
+			<anim-speed value="90" />
+			<animation path="models/vore_eat.g3d" />
+			<sound enabled="false" />
+		</skill>
+
+
+		<skill>
+			<type value="repair"/>
+			<name value="regenerate"/>		
+			<ep-cost value="0"/>
+			<speed value="60"/>
+			<anim-speed value="90"/>
+			<animation path="models/vore_eat.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+		<skill>												
+			<type value="morph"/>
+			<name value="morph"/>
+			<ep-cost value="0"/>	
+			<speed value="225"/>
+			<anim-speed value="90"/>
+			<animation path="models/vore_eat.g3d"/>
+			<particles value="true">
+			</particles>
+			<sound enabled="false"/>										
+		</skill>
+
+	</skills>
+	
+	<commands>
+		
+		<command>
+			<type value="stop"/>
+			<name value="stop"/>
+			<image path="../../../../icons/stop.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+		<command>
+			<type value="move"/>
+			<name value="move"/>
+			<image path="../../../../icons/move.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+		</command>
+
+		<command>
+			<type value="attack"/>
+			<name value="devour"/>
+			<image path="../../../../icons/attack.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="charge_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+
+	
+		<command>
+			<type value="harvest"/>
+			<name value="devour_"/>
+			<image path="../../../../icons/harvest.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<harvest-skill value="mine_skill"/>
+			<stop-loaded-skill value="stop_skill"/>
+			<move-loaded-skill value="move_skill"/>
+			<harvested-resources>
+				<resource name="organic"/>								
+			</harvested-resources>
+			<max-load value="5"/>
+			<hits-per-unit value="1"/>				
+		</command>
+
+		<command>												
+			<type value="morph"/>
+			<name value="evolve_to_cave"/>
+			<image path="../../../../icons/cave.bmp"/>	
+			<unit-requirements/>						
+			<upgrade-requirements>
+			</upgrade-requirements>					
+			<morph-skill value="morph"/>
+			<morph-unit name= "cave"/>	
+				<ignore-resource-requirements value="false" />		
+			<discount value="0"/>				
+		</command>
+		<command>												
+			<type value="morph"/>
+			<name value="evolve_to_nest"/>
+			<image path="../../../../icons/nest.bmp"/>	
+			<unit-requirements/>						
+			<upgrade-requirements>
+			</upgrade-requirements>					
+			<morph-skill value="morph"/>
+			<morph-unit name= "nest"/>	
+				<ignore-resource-requirements value="false" />		
+			<discount value="0"/>				
+		</command>
+		<command>												
+			<type value="morph"/>
+			<name value="evolve_to_evolution_tower"/>
+			<image path="../../../../icons/evo.bmp"/>	
+			<unit-requirements/>						
+			<upgrade-requirements>
+			</upgrade-requirements>					
+			<morph-skill value="morph"/>
+			<morph-unit name= "evolution_tower"/>	
+				<ignore-resource-requirements value="false" />		
+			<discount value="0"/>				
+		</command>		
+		<command>												
+			<type value="morph"/>
+			<name value="evolve_to_cannon"/>
+			<image path="../../../../icons/cannon.bmp"/>	
+			<unit-requirements/>						
+			<upgrade-requirements>
+			</upgrade-requirements>					
+			<morph-skill value="morph"/>
+			<morph-unit name= "cannon"/>	
+				<ignore-resource-requirements value="false" />		
+			<discount value="0"/>				
+		</command>		
+	</commands>
+</unit>

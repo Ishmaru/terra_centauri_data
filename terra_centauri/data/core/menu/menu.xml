@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+<menu>
+	<menu-background-model value="data/core/menu/main_model/menu_main1.g3d"/>
+	<water value="false" height="3"/>
+	<rain value="false"/>
+	<fog value="true" density="0.015"/>
+	<camera>
+		<start-position x="-5" y="13" z="10"/>
+		<root-position x="-10" y="6" z="6"/>
+		<about-position x="-9" y="6" z="7"/>
+		<config-position x="-6" y="8" z="1"/>
+		<info-position x="5" y="6" z="-5"/>
+		<new-game-position x="-8" y="7" z="0"/>
+		<connected-game-position x="8" y="17" z="-10"/>
+		<join-game-position x="8" y="17" z="-10"/>
+		<masterserver-position x="8" y="17" z="-10"/>
+                <mods-position x="4" y="10" z="-14"/>
+		<scenario-position x="-8" y="7" z="0"/>
+		
+		<start-rotation x="-30" y="0" z="0"/>
+		<root-rotation x="15" y="-10" z="0"/>
+		<about-rotation x="15" y="-10" z="0"/>
+		<config-rotation x="0" y="30" z="0"/>
+		<info-rotation x="0" y="25" z="0"/>
+		<new-game-rotation x="0" y="-53" z="0"/>
+		<connected-game-rotation x="-10" y="10" z="0"/>
+		<join-game-rotation x="-10" y="10" z="0"/>
+		<masterserver-rotation x="-10" y="10" z="0"/>
+                <mods-rotation x="0" y="-18" z="0"/>
+		<scenario-rotation x="0" y="-53" z="0"/>		
+	</camera>
+
+	<intro>
+		<intro-time value="15000"/>
+		<appear-time value="500"/>
+		<show-time value="2000"/>
+		<disappear-time value="500"/>
+		<menu-music-path value="/menu/music/"/>
+		<menu-intro-music value="intro_music.ogg"/>
+		<menu-music value="menu_music.ogg"/>
+		<show-intro-pictures value="1" random="false" time="2500"/>
+		<show-intro-models value="false" random="false" min-anim-speed="10" max-anim-speed="10"/>
+		<camera>
+			<start-position x="6" y="8.5" z="11"/>
+			<start-rotation x="0" y="-80" z="0"/>
+		</camera>
+
+	</intro>
+</menu>

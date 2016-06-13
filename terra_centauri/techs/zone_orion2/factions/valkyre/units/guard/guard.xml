@@ -1,0 +1,222 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+
+	<!-- *** parameters *** -->
+
+	<parameters>
+		<size value="1"/>
+		<height value="1"/>
+		<max-hp value="700" regeneration="3"/>
+		<max-ep value="40" regeneration="1"/>
+		<armor value="80"/>	
+		<armor-type value="normal"/>				
+		<sight value="8"/>
+		<time value="100"/>	
+		<multi-selection value="true"/>	
+		<cellmap value="false"/>
+		<levels>
+			<level name="rookie" kills="3"/>
+			<level name="experienced" kills="6"/>
+			<level name="veteran" kills="12"/>
+			<level name="elite" kills="24"/>
+			<level name="heroic" kills="48"/>
+		</levels>
+		<fields>
+			<field value="land"/>
+		</fields>	
+		<properties/>
+		<light enabled="false"/>
+		<unit-requirements/>
+		<upgrade-requirements/>
+		<resource-requirements>
+			<resource name="gold" amount="250"/>
+			<resource name="ore" amount="75"/>
+			<resource name="energy" amount="20"/>
+			<resource name="housing" amount="1" />
+		</resource-requirements>
+		<resources-stored/>
+		<image path="../../../../icons/guard.bmp"/>
+		<image-cancel path="../../../../icons/stop.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">	
+		</selection-sounds>
+		<command-sounds enabled="true">
+		</command-sounds>
+   		<tags>
+			<tag value="land" />
+			<tag value="organic" />
+   		</tags>
+	</parameters>
+	<attack-boosts>
+		<attack-boost name="guard">
+			<allow-multiple-boosts value="true" />
+			<radius value="1" />
+			<target value="faction" include-self="true"/>
+			<max-hp value="0" />
+			<max-ep value="0" />
+			<sight value="0" />
+			<attack-strenght value="0"/>
+			<attack-range value="0" />
+			<armor value="350" />
+			<move-speed value="0"/>
+			<production-speed value="0" />
+			<particles value="false"/>
+		</attack-boost>
+	</attack-boosts>
+
+	<!-- *** skills *** -->
+
+	<skills>
+	
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="25"/>
+			<animation path="troop/shieldstand1.g3d"/>
+			<animation path="troop/shieldstand1.g3d"/>
+			<animation path="troop/shieldstand2.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="stop"/>
+			<name value="guard_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="25"/>
+			<animation path="troop/shieldguard1.g3d"/>
+			<animation path="troop/shieldguard2.g3d"/>
+			<particles value="true">
+				<particle-file path="shield.xml"/>
+			</particles>
+			<sound enabled="false"/>
+			<attack-boost name="guard" />
+		</skill>
+		
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="350"/>
+			<anim-speed value="160"/>
+			<animation path="troop/shieldrun.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="charge_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="350"/>
+			<anim-speed value="160"/>
+			<animation path="troop/shieldrunguard.g3d"/>
+			<particles value="true">
+				<particle-file path="shield.xml"/>
+			</particles>
+			<sound enabled="false"/>
+			<attack-boost name="guard" />
+		</skill>
+
+		<skill>
+			<type value="attack"/>
+			<name value="attack_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="300"/>
+			<anim-speed value="60"/>
+			<animation path="troop/shieldattack.g3d"/>
+			<particles value="true">
+				<particle-file path="shield.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0.2">
+				<sound-file path="lancer.wav"/>
+			</sound>
+			<attack-strenght value="50"/>
+			<attack-var value="25"/>
+			<attack-range value="1"/>
+			<attack-type value="pierce"/>
+			<attack-start-time value="0.2"/>
+			<attack-fields>
+				<field value="land"/>
+			</attack-fields>
+			<projectile value="false"/>
+			<splash value="true">
+				<radius value="0"/>
+				<damage-all value="true"/>
+				<particle value="true" path="gun_hit.xml"/>
+
+			</splash>
+			<attack-boost name="guard" />
+		</skill>
+
+
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="60"/>
+			<anim-speed value="70"/>
+			<animation path="troop/eaten.g3d"/>
+			<sound enabled="true" start-time="0">
+				<sound-file path="sounds/worker_die1.wav"/>
+				<sound-file path="sounds/worker_die2.wav"/>					
+			</sound>				
+			<fade value="false"/>
+		</skill>
+
+
+
+
+
+	</skills>
+
+	<!-- *** commands *** -->
+	
+	<commands>
+		
+		<command>
+			<type value= "stop"/>
+			<name value="stop"/>
+			<image path="../../../../icons/stop.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+		<command>
+			<type value="move"/>
+			<name value="move"/>
+			<image path="../../../../icons/move.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+		</command>
+
+
+		<command>
+			<type value="attack"/>
+			<name value="attack"/>
+			<image path="../../../../icons/attack.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="charge_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+
+		<command>
+			<type value="attack_stopped"/>
+			<name value="guard"/>
+			<image path="../../../../icons/shield.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="guard_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+
+
+
+		
+	</commands>
+</unit>

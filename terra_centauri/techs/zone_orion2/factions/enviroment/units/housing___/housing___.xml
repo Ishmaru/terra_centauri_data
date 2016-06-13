@@ -1,0 +1,87 @@
+<?xml version="1.0" standalone="no" ?>
+<unit>
+	<!-- *** parameters *** -->
+	<parameters>
+		<count-in-victory-conditions value="false"/>
+		<size value="4" />
+		<height value="7" />
+		<max-hp value="4000" regeneration="0"/>
+		<max-ep value="100"  regeneration="10"/>
+		<armor value="0" />
+		<armor-type value="metal"/>
+		<sight value="2" />
+		<time value="75" />
+		<multi-selection value="false" />
+		<cellmap value="false"/>
+		<levels/>
+		<fields>
+			<field value="land" />
+		</fields>
+		<properties>
+			<property value="burnable"/>
+		</properties>
+		<light enabled="false"/>
+		<unit-requirements/>
+		<upgrade-requirements />
+		<resource-requirements>
+			<resource name= "housing" amount="-10" />
+		</resource-requirements>
+		<resources-stored>
+			<resource name= "housing" amount="10" />							
+		</resources-stored>
+		<image path="../../../../icons/barracks.bmp" />
+		<image-cancel path="../../../../icons/stop.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">
+			<sound path="sounds/tech_click.wav" />
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="sounds/tech_click.wav" />
+		</command-sounds>
+   		<tags>
+			<tag value="land" />
+   		</tags>
+	</parameters>
+
+	<!-- *** skills *** -->
+	<skills>
+		<!-- *** skill 0 *** -->
+		<skill>
+			<type value="stop"/>	
+			<name value="stop_skill"/>
+			<ep-cost value="0" />
+			<speed value="50" />
+			<anim-speed value="10" />
+			<animation path="../housing/mech4.g3d" />
+			<sound enabled="false" />
+		</skill>
+
+		<skill>
+			<type value="die" />	
+			<name value="die_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="70" />
+			<animation path="../housing/boom.g3d" />
+			<particles value="true" start-time="0.0" end-time="0.6">
+				<particle-file path="expl_small.xml"/>
+				<particle-file path="expl_small2.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0">
+				<sound-file path="../housing/sounds/tech_building_fall4.wav"/>
+			</sound>			
+			<fade value="false"/>
+			<shake enabled="true" intensity="140" duration="150" start-time="0.0">
+				<self enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+				<team enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+				<enemy enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+			</shake>
+		</skill>
+
+	</skills>
+	
+	<!-- *** commands *** -->
+	<commands>		
+
+	</commands>
+</unit>

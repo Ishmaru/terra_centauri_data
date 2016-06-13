@@ -1,0 +1,66 @@
+<?xml version="1.0" standalone="no"?>
+
+<faction>
+	<starting-resources>
+		<resource name="gold" amount="2000"/>
+		<resource name="ore" amount="1000"/>
+		<resource name="energy" amount="60"/>
+		<resource name="housing" amount="15"/>
+	</starting-resources>
+	<starting-units>
+		<unit name="start" amount="0"/>
+		<unit name="upgrades" amount="0"/>
+		<unit name="energy_core" amount="0"/>
+		<unit name="barracks" amount="0"/>
+		<unit name="factory" amount="0"/>
+		<unit name="transport" amount="0"/>
+		<unit name="rifle" amount="0"/>
+		<unit name="lancer" amount="0"/>
+		<unit name="worker" amount="0"/>
+		<unit name="glider" amount="0"/>
+		<unit name="mech" amount="0"/>
+		<unit name="rocket" amount="0"/>
+		<unit name="jetpack" amount="0"/>
+		<unit name="sensor_array" amount="0"/>
+		<unit name="guard" amount="0"/>
+		<unit name="shield_generator" amount="0"/>
+		<unit name="tank" amount="0"/>
+		<unit name="recharge_drone" amount="0"/>
+		<unit name="stun_drone" amount="0"/>
+		<unit name="start" amount="0"/>
+		<unit name="seraphim" amount="0"/>
+
+	</starting-units>
+		<healthbar>
+			<height value="1"/>
+			<thickness value="0.2"/>
+			<visible value="selected"/>
+		</healthbar>
+	<music value="true" path="terra_soundtrack_1.ogg"/>
+	<ai-behavior>
+		<worker-units>
+			<unit name="worker" minimum="6"/>
+		</worker-units>
+		<warrior-units>
+			<unit name="rifle" minimum="4"/>
+			<unit name="rocket" minimum="3"/>
+			<unit name="lancer" minimum="5"/>
+		</warrior-units>
+		<resource-producer-units/>
+		<building-units>
+			<unit name="barracks" minimum="1"/>
+			<unit name="energy_core" minimum="1"/>
+			<unit name="factory" minimum="1"/>
+		</building-units>
+		<upgrades>
+		</upgrades>
+		<static-values>
+			<static type-name="MinStaticResourceCount" value="1"/>
+			<static type-name="ScoutResourceRange" value="25"/>
+			<static type-name="MinBuildSpacing" value="3"/>
+			<static type-name="MinMinWarriors" value="6"/>
+			<static type-name="MaxMinWarriors" value="10"/>
+			<static type-name="MinWorkerAttackersHarvesting" value="8"/>
+		</static-values>
+	</ai-behavior>
+</faction>

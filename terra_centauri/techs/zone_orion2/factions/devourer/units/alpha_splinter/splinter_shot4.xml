@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="yes"?>
+<projectile-particle-system>
+    	<texture value="false"/>
+    	<model value="true" path="models/splinter.g3d">
+               <cycles value="1"/>
+	</model>
+	<mode value="black"/>
+	<primitive value="line"/>
+	<offset x="-0.7" y="0" z="-0.5"/>
+	<color red="0.2" green="0.2" blue="0.2" alpha="0.8" />
+	<color-no-energy red="0.2" green="0.2" blue="0.2" alpha="0" />
+    	<size value="10.0" />
+    	<size-no-energy value="10" />
+    	<speed value="0" />
+	<gravity value="0"/>
+    	<emission-rate value="1.0" />
+    	<energy-max value="8" />
+    	<energy-var value="0" />
+	
+	<trajectory type="parabolic">
+		<speed value="15"/>
+		<scale value="5"/>
+	</trajectory>
+</projectile-particle-system>

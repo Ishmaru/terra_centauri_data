@@ -1,0 +1,182 @@
+<?xml version="1.0" standalone="no" ?>
+<unit>
+	<!-- *** parameters *** -->
+	<parameters>
+		<size value="7" />
+		<height value="7" />
+		<max-hp value="9000" regeneration="0"/>
+		<max-ep value="100"  regeneration="1"/>
+		<armor value="100" />
+		<armor-type value="metal"/>
+		<sight value="15" />
+		<time value="200" />
+		<multi-selection value="false" />
+		<cellmap value="true">
+			<row value="1111111"/>
+			<row value="1111111"/>
+			<row value="1111111"/>
+			<row value="1110111"/>
+			<row value="1110111"/>
+			<row value="1110111"/>
+			<row value="0110110"/>
+		</cellmap>
+		<levels/>
+		<fields>
+			<field value="land" />
+		</fields>
+		<properties>
+			<property value="burnable"/>
+		</properties>
+		<light enabled="false"/>
+		<unit-requirements/>
+		<upgrade-requirements />
+		<resource-requirements>
+			<resource name="housing" amount="-10" />
+		</resource-requirements>
+		<resources-stored>
+			<resource name= "housing" amount="10" />	
+			<resource name= "gold" amount="3000"/>	
+			<resource name= "ore" amount="2000"/>
+			<resource name= "evolution" amount="10" />			
+		</resources-stored>							
+		<image path="../../../../icons/lander.bmp" />
+		<image-cancel path="../../../../icons/stop.bmp"/>
+		<meeting-point value="true" image-path="../../../../icons/meet.bmp"/>
+		<selection-sounds enabled="true">
+			<sound path="sounds/tech_click.wav" />
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="sounds/tech_click.wav" />
+		</command-sounds>
+   		<tags>
+			<tag value="land" />
+   		</tags>
+	</parameters>
+	
+	<!-- *** skills *** -->
+	<skills>
+		<!-- *** skill 0 *** -->
+		<skill>
+			<type value="stop"/>	
+			<name value="stop_skill"/>
+			<ep-cost value="0" />
+			<speed value="50" />
+			<anim-speed value="10" />
+			<animation path="lander/lander.g3d" />
+			<particles value="true">
+				<particle-file path="door_glow.xml"/>
+				<particle-file path="light3.xml"/>
+				<particle-file path="light4.xml"/>
+			</particles>
+			<sound enabled="false" />
+		</skill>
+		
+		<!-- *** skill 1 *** -->
+		<skill>
+			<type value="be_built" />	
+			<name value="be_built_skill"/>		
+			<ep-cost value="0" />
+			<speed value="10000" />
+			<anim-speed value="1" />
+			<anim-progress-bound value="true"/>
+			<animation path="lander/lander_arive.g3d" />
+			<particles value="true" start-time="0.25" end-time="0.99">
+				<particle-file path="air_dust.xml"/>
+			</particles>
+			<sound enabled="false" />
+		</skill>	
+		
+		<!-- *** skill 2 *** -->
+		<skill>
+			<type value="upgrade"/>	
+			<name value="trade_skill"/>	
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="10" />
+			<animation path="lander/lander.g3d" />
+			<particles value="true">
+				<particle-file path="door_glow.xml"/>
+				<particle-file path="door_build.xml"/>
+				<particle-file path="light3.xml"/>
+				<particle-file path="light4.xml"/>
+			</particles>
+			<sound enabled="false" />
+		</skill>
+		
+		<!-- *** skill 3 *** -->
+		<skill>
+			<type value="produce"/>
+			<name value="produce_skill"/>	
+			<ep-cost value="0" />
+			<speed value="1000" />
+			<anim-speed value="10" />
+			<animation path="lander/lander.g3d" />
+			<particles value="true">
+				<particle-file path="door_glow.xml"/>
+				<particle-file path="door_build.xml"/>
+				<particle-file path="light3.xml"/>
+				<particle-file path="light4.xml"/>
+			</particles>
+			<sound enabled="false" />
+		</skill>	
+		
+		<!-- *** skill 4 *** -->
+		<skill>
+			<type value="die" />	
+			<name value="die_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="70" />
+			<animation path="../barracks/barracks/boom.g3d" />
+			<particles value="true" start-time="0.0" end-time="0.6">
+				<particle-file path="expl_small.xml"/>
+				<particle-file path="expl_small2.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0">
+				<sound-file path="../barracks/sounds/tech_building_fall4.wav"/>
+			</sound>			
+			<fade value="false"/>
+			<shake enabled="true" intensity="140" duration="150" start-time="0.0">
+				<self enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+				<team enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+				<enemy enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+			</shake>
+		</skill>
+
+	</skills>
+	
+	<!-- *** commands *** -->
+	<commands>
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_worker" />
+			<image path="../../../../icons/worker.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="worker"/>
+		</command>
+
+		<command>
+			<type value="produce"/>
+			<name value="buy_ore" />
+			<image path="../../../../icons/trade_ore.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="buy_ore"/>
+		</command>
+
+		<command>
+			<type value="produce"/>
+			<name value="sell_ore" />
+			<image path="../../../../icons/trade_crystal.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="sell_ore"/>
+		</command>
+
+	</commands>
+</unit>

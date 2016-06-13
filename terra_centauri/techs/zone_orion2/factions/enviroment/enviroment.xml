@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="no"?>
+
+<faction>
+	<starting-resources>
+		<resource name="gold" amount="0"/>
+	</starting-resources>
+	<starting-units>
+	</starting-units>
+	<music value="false"/>
+		<healthbar>
+			<height value="1"/>
+			<thickness value="0.2"/>
+			<visible value="ifNeeded"/>
+		</healthbar>
+</faction>

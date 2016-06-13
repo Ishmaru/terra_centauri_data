@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="no"?>
+
+<upgrade>
+	<image path="unit.bmp"/>
+	<image-cancel path="unit.bmp"/>
+	<time value="1"/>
+	<unit-requirements/>
+	<upgrade-requirements/>
+	<resource-requirements/>
+	<effects>
+		<unit name="lancer"/>
+		<unit name="guard"/>
+		<unit name="rifle"/>
+		<unit name="beam"/>
+		<unit name="rocket"/>
+		<unit name="jetpack"/>
+		<unit name="tame_primal"/>
+	</effects>
+	<max-hp value="0"/>
+	<max-ep value="0"/>
+	<sight value="0"/>
+	<attack-strenght value="0"/>
+	<attack-range value="0"/>
+	<armor value="50"/>
+	<move-speed value="0"/>
+	<production-speed value="0"/>
+</upgrade>

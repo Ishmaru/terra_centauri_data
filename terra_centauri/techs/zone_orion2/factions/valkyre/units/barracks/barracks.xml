@@ -1,0 +1,256 @@
+<?xml version="1.0" standalone="no" ?>
+<unit>
+	<!-- *** parameters *** -->
+	<parameters>
+		<size value="6" />
+		<height value="8" />
+		<max-hp value="9000" regeneration="0"/>
+		<max-ep value="100"  regeneration="1"/>
+		<armor value="100" />
+		<armor-type value="metal"/>
+		<sight value="2" />
+		<time value="150" />
+		<multi-selection value="false" />
+		<cellmap value="true">
+			<row value="111111"/>
+			<row value="111111"/>
+			<row value="111111"/>
+			<row value="111111"/>
+			<row value="111111"/>
+			<row value="110011"/>
+		</cellmap>
+		<levels/>
+		<fields>
+			<field value="land" />
+		</fields>
+		<properties>
+			<property value="burnable"/>
+		</properties>
+		<light enabled="false"/>
+		<unit-requirements/>
+		<upgrade-requirements />
+		<resource-requirements>
+			<resource name="gold" amount="500" />
+			<resource name= "ore" amount="400"/>
+			<resource name="energy" amount="30" />
+			<resource name="housing" amount="-20" />
+		</resource-requirements>
+		<resources-stored>
+			<resource name= "housing" amount="20" />								
+		</resources-stored>
+		<image path="../../../../icons/barracks.bmp" />
+		<image-cancel path="../../../../icons/stop.bmp"/>
+		<meeting-point value="true" image-path="../../../../icons/meet.bmp"/>
+		<selection-sounds enabled="true">
+			<sound path="sounds/tech_click.wav" />
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="sounds/tech_click.wav" />
+		</command-sounds>
+   		<tags>
+			<tag value="land" />
+   		</tags>
+	</parameters>
+	
+	<!-- *** skills *** -->
+	<skills>
+		<!-- *** skill 0 *** -->
+		<skill>
+			<type value="stop"/>	
+			<name value="stop_skill"/>
+			<ep-cost value="0" />
+			<speed value="50" />
+			<anim-speed value="10" />
+			<animation path="barracks/barracks.g3d" />
+			<particles value="true">
+				<particle-file path="door_glow.xml"/>
+				<particle-file path="light1.xml"/>
+				<particle-file path="light2.xml"/>
+				<particle-file path="light3.xml"/>
+				<particle-file path="light4.xml"/>
+			</particles>
+			<sound enabled="false" />
+		</skill>
+		
+		<!-- *** skill 1 *** -->
+		<skill>
+			<type value="be_built" />	
+			<name value="be_built_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="1" />
+			<anim-progress-bound value="true"/>
+			<animation path="barracks/built.g3d" />
+			<particles value="true">
+				<particle-file path="built_spark.xml"/>
+				<particle-file path="built_smoke.xml"/>
+			</particles>
+			<sound enabled="false" />
+		</skill>	
+		
+		<!-- *** skill 2 *** -->
+		<skill>
+			<type value="upgrade"/>	
+			<name value="upgrade_skill"/>	
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="10" />
+			<animation path="barracks/barracks.g3d" />
+			<particles value="true">
+				<particle-file path="door_glow.xml"/>
+				<particle-file path="door_build.xml"/>
+				<particle-file path="light1.xml"/>
+				<particle-file path="light2.xml"/>
+				<particle-file path="light3.xml"/>
+				<particle-file path="light4.xml"/>
+			</particles>
+			<sound enabled="false" />
+		</skill>
+		
+		<!-- *** skill 3 *** -->
+		<skill>
+			<type value="produce"/>
+			<name value="produce_skill"/>	
+			<ep-cost value="0" />
+			<speed value="1600" />
+			<anim-speed value="10" />
+			<animation path="barracks/barracks.g3d" />
+			<particles value="true">
+				<particle-file path="door_glow.xml"/>
+				<particle-file path="door_build.xml"/>
+				<particle-file path="light1.xml"/>
+				<particle-file path="light2.xml"/>
+				<particle-file path="light3.xml"/>
+				<particle-file path="light4.xml"/>
+			</particles>
+			<sound enabled="false" />
+		</skill>	
+		
+		<!-- *** skill 4 *** -->
+		<skill>
+			<type value="die" />	
+			<name value="die_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="70" />
+			<animation path="barracks/boom.g3d" />
+			<particles value="true" start-time="0.0" end-time="0.6">
+				<particle-file path="expl_small.xml"/>
+				<particle-file path="expl_small2.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0">
+				<sound-file path="../barracks/sounds/tech_building_fall4.wav"/>
+			</sound>			
+			<fade value="false"/>
+			<shake enabled="true" intensity="140" duration="150" start-time="0.0">
+				<self enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+				<team enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+				<enemy enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+			</shake>
+		</skill>
+
+	</skills>
+	
+	<!-- *** commands *** -->
+	<commands>
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_worker" />
+			<image path="../../../../icons/worker.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="worker"/>
+		</command>
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_scout" />
+			<image path="../../../../icons/scout.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="scout"/>
+		</command>		
+		
+		<command>
+			<type value="produce"/>
+			<name value="produce_lancer" />
+			<image path="../../../../icons/lance.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="lancer"/>
+		</command>
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_rifle" />
+			<image path="../../../../icons/rifle.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="rifle"/>
+		</command>
+		<command>
+			<type value="produce"/>
+			<name value="produce_guard" />
+			<image path="../../../../icons/guard.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="guard"/>
+		</command>
+
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_beam" />
+			<image path="../../../../icons/beam.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="beam"/>
+		</command>				
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_jetpack" />
+			<image path="../../../../icons/jet.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="jetpack"/>
+		</command>
+
+		<command>
+			<type value="produce"/>
+			<name value="produce_rocket" />
+			<image path="../../../../icons/rocket.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="rocket"/>
+		</command>
+		
+		<command>
+			<type value="produce"/>
+			<name value="produce_seraphim" />
+			<image path="../../../../icons/ser.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="seraphim"/>
+		</command>
+		<command>
+			<type value="produce"/>
+			<name value="produce_tame_primal" />
+			<image path="../../../../icons/primal.bmp" />
+			<unit-requirements />
+			<upgrade-requirements />
+			<produce-skill value="produce_skill"/>
+			<produced-unit name="tame_primal"/>
+		</command>
+	</commands>
+</unit>

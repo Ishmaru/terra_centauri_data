@@ -1,0 +1,154 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+	<parameters>
+		<size value="3"/>
+		<height value="4"/>
+		<max-hp value="2000" regeneration="10"/>
+		<max-ep value="100" regeneration="1"/>
+		<armor value="100"/>	
+		<armor-type value="normal"/>				
+		<sight value="10"/>
+		<time value="100"/>	
+		<multi-selection value="false"/>	
+		<cellmap value="false"/>
+		<levels>
+			<level name="taste_blood" kills="10"/>
+			<level name="carnivore" kills="25"/>
+			<level name="ptreditor" kills="50"/>
+		</levels>
+		<fields>
+			<field value="land"/>
+		</fields>	
+		<properties>	
+		</properties>
+		<light enabled="false"/>
+		<unit-requirements>
+		</unit-requirements>
+		<upgrade-requirements/>
+		<resource-requirements>	
+			<resource name="meat" amount="3"/>
+		</resource-requirements>
+		<resources-stored>								
+		</resources-stored>
+		<image path="../../../../icons/cannon.bmp"/>
+		<image-cancel path="images/swordman_attack.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">
+			<sound path="sounds/sel1.wav"/>
+			<sound path="sounds/sel2.wav"/>
+			<sound path="sounds/sel3.wav"/>
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="sounds/sel1.wav"/>
+			<sound path="sounds/sel2.wav"/>
+			<sound path="sounds/sel3.wav"/>
+		</command-sounds>
+   		<tags>
+			<tag value="land" />
+			<tag value="organic" />
+			<tag value="devourer" />
+   		</tags>
+	</parameters>
+
+	<skills>
+	
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="45"/>
+			<animation path="models/cannonstand.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="180"/>
+			<anim-speed value="100"/>
+			<animation path="models/cannonstand.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+
+
+		<skill>
+			<type value="attack"/>
+			<name value="attack_skill"/>		
+			<ep-cost value="5"/>
+			<speed value="50"/>
+			<anim-speed value="50"/>
+			<animation path="models/cannonshoot.g3d"/>
+			<sound enabled="true" start-time="0.6">
+				<sound-file path="sounds/attack2.wav"/>
+			</sound> 
+			<attack-strenght value="500"/>
+			<attack-var value="100"/>
+			<attack-range value="16"/>
+			<attack-type value="explosive"/>
+			<attack-fields>
+				<field value="land"/>
+				<field value="air"/>
+			</attack-fields>
+			<attack-start-time value="0.6"/>
+			<projectile value="true">
+				<particle value="true" path="bomber_spit.xml"/>
+				<sound enabled="true">
+				</sound>
+			</projectile>
+			<splash value="true">
+				<radius value="2"/>
+				<damage-all value="true"/>
+				<particle value="true" path="shell_expl_large.xml"/>
+			</splash>
+		</skill>	
+
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="60"/>
+			<anim-speed value="60"/>
+			<animation path="models/cannondie.g3d"/>
+			<particles value="true" start-time="0.0" end-time="0.1">
+				<particle-file path="splat.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0">
+				<sound-file path="sounds/die1.ogg"/>
+				<sound-file path="sounds/die2.wav"/>
+				<sound-file path="sounds/die3.ogg"/>
+			</sound>			
+			<fade value="true"/>
+		</skill>
+
+
+
+	</skills>
+	
+	<commands>
+		
+		<command>
+			<type value="stop"/>
+			<name value="stop"/>
+			<image path="../../../../icons/stop.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+		<command>
+			<type value="attack_stopped"/>
+			<name value="bomber_attack"/>
+			<image path="../../../../icons/hold.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+
+
+	</commands>
+</unit>

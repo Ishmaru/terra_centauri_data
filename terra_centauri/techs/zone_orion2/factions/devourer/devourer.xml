@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="no"?>
+
+<faction>
+	<starting-resources>
+		<resource name="organic" amount="1000"/>
+	</starting-resources>
+	<starting-units>
+		<unit name="devourer" amount="6"/>
+		<unit name="cave" amount="1"/>
+		<unit name="cannon" amount="1"/>
+	</starting-units>
+	<music value="false"/>
+		<healthbar>
+			<height value="1"/>
+			<thickness value="0.2"/>
+			<visible value="ifNeeded"/>
+		</healthbar>
+	<ai-behavior>
+		<worker-units>
+			<unit name="devourer" minimum="6"/>
+		</worker-units>
+		<warrior-units/>
+		<resource-producer-units/>
+		<building-units>
+			<unit name="cave" minimum="3"/>
+		</building-units>
+		<upgrades>
+			<upgrade name="hunter"/>
+		</upgrades>
+		<static-values>
+			<static type-name="MinStaticResourceCount" value="10"/>
+			<static type-name="MinWorkerAttackersHarvesting" value="8"/>
+			<static type-name="MinBuildSpacing" value="5"/>
+			<static type-name="MinMinWarriors" value="1"/>
+			<static type-name="MaxMinWarriors" value="2"/>
+		</static-values>
+	</ai-behavior>
+</faction>
+

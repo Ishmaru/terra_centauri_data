@@ -1,0 +1,194 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+
+	<!-- *** parameters *** -->
+
+	<parameters>
+		<size value="2"/>
+		<height value="3"/>
+		<max-hp value="1500" regeneration="0"/>
+		<max-ep value="100" regeneration="1"/>
+		<armor value="200"/>	
+		<armor-type value="metal"/>				
+		<sight value="10"/>
+		<time value="65"/>	
+		<multi-selection value="false"/>	
+		<cellmap value="false"/>
+		<levels>
+			<level name="rookie" kills="10"/>
+			<level name="experienced" kills="20"/>
+			<level name="veteran" kills="40"/>
+			<level name="elite" kills="70"/>
+			<level name="heroic" kills="100"/>
+		</levels>
+		<fields>
+			<field value="land"/>
+		</fields>	
+		<properties>
+			<property value="rotated_climb"/>	
+		</properties>
+		<light enabled="false"/>
+		<unit-requirements/>
+		<upgrade-requirements/>
+		<resource-requirements>
+			<resource name="gold" amount="500"/>
+			<resource name= "ore" amount="350"/>
+			<resource name="energy" amount="50"/>
+			<resource name="housing" amount="2" />
+		</resource-requirements>
+		<resources-stored/>
+		<image path="../../../../icons/energy.bmp"/>
+		<image-cancel path="../../../../icons/stop.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">	
+		</selection-sounds>
+		<command-sounds enabled="true">
+		</command-sounds>
+   		<tags>
+			<tag value="land" />
+			<tag value="mech" />
+   		</tags>
+	</parameters>
+
+
+	<!-- *** skills *** -->
+
+	<skills>
+	
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="10"/>
+			<animation path="turret/laserstand1.g3d"/>
+			<animation path="turret/laserstand2.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+		
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="260"/>
+			<anim-speed value="30"/>
+			<animation path="turret/laserstand1.g3d"/>
+			<particles value="true">
+				<particle-file path="dust.xml"/>
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="be_built" />	
+			<name value="be_built_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="150" />
+			<animation path="turret/laserbuild.g3d" />
+			<sound enabled="false" />
+		</skill>
+
+		<skill>
+			<type value="attack"/>
+			<name value="attack_skill"/>		
+			<ep-cost value="12"/>
+			<speed value="30"/>
+			<anim-speed value="30"/>
+			<animation path="turret/lasershoot.g3d"/>
+			<sound enabled="true" start-time="0.38">
+				<sound-file path="tank_shot.wav"/>
+			</sound>
+			<attack-strenght value="450"/>
+			<attack-var value="100"/>
+			<attack-range value="15"/>
+			<attack-type value="energy"/>
+			<attack-start-time value="0.38"/>
+			<attack-fields>
+				<field value="land"/>
+			</attack-fields>
+
+			<projectile value="true">
+				<particle value="true" path="tank_proj.xml"/>
+				<sound enabled="true">
+					<sound-file path="small_expl.wav"/>
+				</sound>
+			</projectile>
+			<splash value="true">
+				<radius value="2"/>
+				<damage-all value="true"/>
+				<particle value="true" path="energy_shell_splash.xml"/>
+
+			</splash>
+			<particles value="true" start-time="0.45" end-time="0.90">
+				<particle-file path="exaust.xml"/>
+				<particle-file path="cannon.xml"/>
+			</particles>
+			<shake enabled="true" intensity="50" duration="70" start-time="0.25">
+				<self enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+				<team enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+				<enemy enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+			</shake>
+		</skill>
+
+
+
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="60"/>
+			<anim-speed value="70"/>
+			<animation path="turret/mechboom.g3d"/>
+			<particles value="true" start-time="0.0" end-time="0.6">
+				<particle-file path="expl_small.xml"/>
+				<particle-file path="expl_small2.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0">
+				<sound-file path="sounds/expl.wav"/>
+				<sound-file path="sounds/expl.wav"/>					
+			</sound>				
+			<fade value="false"/>
+			<shake enabled="true" intensity="70" duration="150" start-time="0.0">
+				<self enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+				<team enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+				<enemy enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+			</shake>
+		</skill>
+
+
+
+
+	</skills>
+
+	<!-- *** commands *** -->
+	
+	<commands>
+		
+		<command>
+			<type value= "stop"/>
+			<name value="stop"/>
+			<image path="../../../../icons/stop.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+
+		<command>
+			<type value="attack_stopped"/>
+			<name value="hold_position"/>
+			<image path="../../../../icons/hold.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+
+
+
+
+		
+	</commands>
+</unit>

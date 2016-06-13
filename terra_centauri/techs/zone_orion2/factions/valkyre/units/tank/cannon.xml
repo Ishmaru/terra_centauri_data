@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="yes"?>
+<unit-particle-system>
+    	<texture value="true" path="images/beam.bmp" luminance="false"/>
+	<primitive value="quad"/>
+	<offset x="-0.7" y="1.4" z="1.4"/>
+	<direction x="0" y="0" z="0"/>
+	<color red="0.4" green="1" blue="0.4" alpha="1" />
+	<color-no-energy red="0.1" green="0.2" blue="0.1" alpha="0.1" />
+    	<radius value="0.001" />
+    	<size value="8" />
+    	<size-no-energy value="15" />
+    	<speed value="0" />
+	<gravity value="0"/>
+    	<emission-rate value="0.001" />
+    	<energy-max value="30" />
+    	<energy-var value="0" />
+	<relative value="true" />
+    	<fixed value="true" />
+    	<teamcolorNoEnergy value="false" />
+    	<teamcolorEnergy value="false" />
+
+	<!--trajectory type="spiral">
+		<speed value="14.0"/>
+		<scale value="1"/>
+		<frequency value="0.5"/>
+	</trajectory-->
+<isDaylightAffected value="true" />
+</unit-particle-system>

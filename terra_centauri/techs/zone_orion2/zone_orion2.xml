@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="no"?>
+
+<tech-tree>
+	
+	<attack-types>
+		<attack-type name="pierce"/>
+		<attack-type name="energy"/>
+		<attack-type name="eat"/>
+		<attack-type name="acid"/>
+		<attack-type name="explosive"/>
+	</attack-types>
+	
+	<armor-types>
+		<armor-type name="evade"/>
+		<armor-type name="normal"/>
+		<armor-type name="hard"/>
+		<armor-type name="metal"/>
+ 	</armor-types>
+	
+	<damage-multipliers>
+		<damage-multiplier attack="pierce" armor="normal" value="0.9"/>
+		<damage-multiplier attack="pierce" armor="hard" value="0.2"/>
+		<damage-multiplier attack="pierce" armor="metal" value="0.2"/>
+		<damage-multiplier attack="pierce" armor="evade" value="0.5"/>
+
+		<damage-multiplier attack="eat" armor="metal" value="0.2"/>
+		<damage-multiplier attack="eat" armor="hard" value="0.2"/>
+
+		<damage-multiplier attack="explosive" armor="normal" value="0.7"/>
+		<damage-multiplier attack="explosive" armor="hard" value="1.3"/>
+		<damage-multiplier attack="explosive" armor="metal" value="0.8"/>
+		<damage-multiplier attack="explosive" armor="evade" value="0.1"/>
+
+		<damage-multiplier attack="energy" armor="normal" value="0.5"/>
+		<damage-multiplier attack="energy" armor="hard" value="0.8"/>
+		<damage-multiplier attack="energy" armor="metal" value="0.7"/>
+		<damage-multiplier attack="energy" armor="evade" value="0.1"/>
+	</damage-multipliers>
+</tech-tree>

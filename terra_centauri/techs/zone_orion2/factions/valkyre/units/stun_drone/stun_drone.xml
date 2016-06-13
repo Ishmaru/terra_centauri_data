@@ -1,0 +1,199 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+
+	<!-- *** parameters *** -->
+
+	<parameters>
+		<size value="2"/>
+		<height value="1"/>
+		<max-hp value="350" regeneration="0"/>
+		<max-ep value="40" regeneration="1"/>
+		<armor value="10"/>	
+		<armor-type value="normal"/>				
+		<sight value="10"/>
+		<time value="75"/>	
+		<multi-selection value="true"/>	
+		<cellmap value="false"/>
+		<levels>
+		</levels>
+		<fields>
+			<field value="air"/>
+		</fields>	
+		<properties/>
+		<light enabled="false"/>
+		<unit-requirements/>
+		<upgrade-requirements/>
+		<resource-requirements>
+			<resource name="gold" amount="100"/>
+			<resource name= "ore" amount="75"/>
+			<resource name= "energy" amount="15"/>
+		</resource-requirements>
+		<resources-stored/>
+		<image path="../../../../icons/stun.bmp"/>
+		<image-cancel path="../../../../icons/stop.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">	
+		</selection-sounds>
+		<command-sounds enabled="true">
+		</command-sounds>
+   		<tags>
+		<tag value="air" />
+		<tag value="mech" />
+   		</tags>
+	</parameters>
+
+	<attack-boosts>
+		<attack-boost name="stun">
+			<allow-multiple-boosts value="false" />
+			<radius value="3" />
+			<target value="foe"/>
+			<max-hp value="0" />
+			<max-ep value="0" />
+			<sight value="0" />
+			<attack-strenght value="-50" value-percent-multiplier="true"/>
+			<attack-range value="0" />
+			<armor value="0" />
+			<move-speed value="-100" value-percent-multiplier="true"/>
+			<production-speed value="-50" value-percent-multiplier="true"/>
+				<particles value="true">
+					<affected-particle-file path="slow.xml"/>
+				</particles>
+		</attack-boost>
+	</attack-boosts>
+
+	<!-- *** skills *** -->
+
+	<skills>
+	
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="120"/>
+			<animation path="drone/drone.g3d"/>
+			<particles value="true">
+				<particle-file path="air_dust.xml"/>
+				<particle-file path="fan_blow.xml"/>
+				<particle-file path="glow.xml"/>
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+		
+
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="400"/>
+			<anim-speed value="120"/>
+			<animation path="drone/drone.g3d"/>
+			<particles value="true">
+				<particle-file path="air_dust.xml"/>
+				<particle-file path="fan_blow.xml"/>
+				<particle-file path="glow.xml"/>
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="chase_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="400"/>
+			<anim-speed value="120"/>
+			<animation path="drone/drone.g3d"/>
+			<particles value="true">
+				<particle-file path="air_dust.xml"/>
+				<particle-file path="fan_blow.xml"/>
+				<particle-file path="glow.xml"/>
+				<particle-file path="slow_beam.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0">
+				<sound-file path="sounds/stun.wav"/>
+			</sound>
+			<attack-boost name="stun" />
+		</skill>
+
+		<skill>
+			<type value="attack"/>
+			<name value="slow_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="300"/>
+			<anim-speed value="120"/>
+			<animation path="drone/drone.g3d"/>
+			<particles value="true">
+				<particle-file path="air_dust.xml"/>
+				<particle-file path="fan_blow.xml"/>
+				<particle-file path="glow.xml"/>
+				<particle-file path="slow_beam.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0">
+				<sound-file path="sounds/stun.wav"/>
+			</sound>
+			<attack-strenght value="0"/>
+			<attack-var value="0"/>
+			<attack-range value="0"/>
+			<attack-type value="energy"/>
+			<attack-start-time value="0.9"/>
+			<attack-fields>
+				<field value="land"/>
+			</attack-fields>
+			<projectile value="false"/>
+			<splash value="false"/>
+			<attack-boost name="stun" />
+		</skill>
+
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="60"/>
+			<anim-speed value="70"/>
+			<animation path="drone/boom.g3d"/>
+			<sound enabled="true" start-time="0">
+			</sound>
+			<particles value="true">
+			</particles>	
+			<fade value="false"/>
+		</skill>
+
+
+
+
+	</skills>
+
+	<!-- *** commands *** -->
+	
+	<commands>
+		
+		<command>
+			<type value= "stop"/>
+			<name value="stop"/>
+			<image path="../../../../icons/stop.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+		<command>
+			<type value="move"/>
+			<name value="move"/>
+			<image path="../../../../icons/move.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+		</command>
+		<command>
+			<type value="attack"/>
+			<name value="slow"/>
+			<image path="../../../../icons/attack.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="chase_skill"/>
+			<attack-skill value="slow_skill"/>
+		</command>
+
+	</commands>
+</unit>

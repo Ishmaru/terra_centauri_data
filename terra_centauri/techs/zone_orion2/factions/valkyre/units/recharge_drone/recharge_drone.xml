@@ -1,0 +1,184 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+
+	<!-- *** parameters *** -->
+
+	<parameters>
+		<count-in-victory-conditions value="false"/>
+		<size value="2"/>
+		<height value="1"/>
+		<max-hp value="350" regeneration="0"/>
+		<max-ep value="40" regeneration="1"/>
+		<armor value="10"/>	
+		<armor-type value="normal"/>				
+		<sight value="10"/>
+		<time value="75"/>	
+		<multi-selection value="true"/>	
+		<cellmap value="false"/>
+		<levels>
+		</levels>
+		<fields>
+			<field value="air"/>
+		</fields>	
+		<properties/>
+		<light enabled="false"/>
+		<unit-requirements/>
+		<upgrade-requirements/>
+		<resource-requirements>
+			<resource name="gold" amount="150"/>
+			<resource name= "ore" amount="75"/>
+		</resource-requirements>
+		<resources-stored/>
+		<image path="../../../../icons/drone.bmp"/>
+		<image-cancel path="../../../../icons/stop.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">	
+		</selection-sounds>
+		<command-sounds enabled="true">
+		</command-sounds>
+   		<tags>
+			<tag value="air" />
+			<tag value="mech" />
+   		</tags>
+	</parameters>
+
+
+	<!-- *** skills *** -->
+
+	<skills>
+	
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="120"/>
+			<animation path="drone/drone.g3d"/>
+			<particles value="true">
+				<particle-file path="air_dust.xml"/>
+				<particle-file path="fan_blow.xml"/>
+				<particle-file path="glow.xml"/>
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+		
+		<skill>
+			<type value="stop"/>
+			<name value="release_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="120"/>
+			<animation path="drone/drone.g3d"/>
+			<particles value="true">
+				<particle-file path="air_dust.xml"/>
+				<particle-file path="fan_blow.xml"/>
+				<particle-file path="glow.xml"/>
+			</particles>
+			<attack-boost>
+				<allow-multiple-boosts value="false" />
+				<radius value="0"/>
+                        	<target value="all" include-self="true">
+					<unit-type name="recharge_drone" />
+				</traget>
+				<max-hp value="0"  regeneration="-500"/>
+				<max-ep value="0"/>
+				<sight value="0"/>
+				<attack-strenght value="0"/>
+				<attack-range value="0"/>
+				<armor value="0"/>
+				<move-speed value="0"/>
+				<production-speed value="0"/>
+				<particles value="false"/>
+                        </attack-boost>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="400"/>
+			<anim-speed value="120"/>
+			<animation path="drone/drone.g3d"/>
+			<particles value="true">
+				<particle-file path="air_dust.xml"/>
+				<particle-file path="fan_blow.xml"/>
+				<particle-file path="glow.xml"/>
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+
+
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="60"/>
+			<anim-speed value="70"/>
+			<animation path="drone/boom.g3d"/>
+			<sound enabled="true" start-time="0">
+				<sound-file path="sounds/recharge.ogg"/>
+			</sound>
+			<particles value="true">
+				<particle-file path="energy_core_beam.xml"/>
+				<particle-file path="energy.xml"/>
+				<particle-file path="glow.xml"/>
+			</particles>	
+			<attack-boost>
+				<allow-multiple-boosts value="true" />
+				<radius value="4"/>
+                        	<target value="all" include-self="false"/>
+				<max-hp value="0"  regeneration="15"/>
+				<max-ep value="0"  regeneration="8"/>
+				<sight value="0"/>
+				<attack-strenght value="0"/>
+				<attack-range value="0"/>
+				<armor value="0"/>
+				<move-speed value="0"/>
+				<production-speed value="100"/>
+				<particles value="true">
+					<affected-particle-file path="power.xml"/>
+				</particles>
+                        </attack-boost>			
+			<fade value="false"/>
+		</skill>
+
+
+
+
+	</skills>
+
+	<!-- *** commands *** -->
+	
+	<commands>
+		
+		<command>
+			<type value= "stop"/>
+			<name value="stop"/>
+			<image path="../../../../icons/stop.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+		<command>
+			<type value="move"/>
+			<name value="move"/>
+			<image path="../../../../icons/move.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+		</command>
+
+		<command>
+			<type value= "stop"/>
+			<name value="release_energy"/>
+			<image path="../../../../icons/attack.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="release_skill"/>
+		</command>
+
+	</commands>
+</unit>

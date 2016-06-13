@@ -1,0 +1,83 @@
+<?xml version="1.0" standalone="no" ?>
+<unit>
+	<!-- *** parameters *** -->
+	<parameters>
+		<count-in-victory-conditions value="false"/>
+		<size value="6" />
+		<height value="4" />
+		<max-hp value="500" regeneration="0"/>
+		<max-ep value="50"  regeneration="10"/>
+		<armor value="100" />
+		<armor-type value="metal"/>
+		<sight value="0" />
+		<time value="20000" />
+		<multi-selection value="false" />
+		<cellmap value="true">
+			<row value="111111"/>
+			<row value="100001"/>
+			<row value="100001"/>
+			<row value="100001"/>
+			<row value="100001"/>
+			<row value="111111"/>
+		</cellmap>
+		<levels/>
+		<fields>
+			<field value="land" />
+		</fields>
+		<properties>
+		</properties>
+		<light enabled="false" />
+		<unit-requirements>
+		</unit-requirements>
+		<upgrade-requirements />
+		<resource-requirements>
+		</resource-requirements>
+		<resources-stored>
+		</resources-stored>
+		<image path="../../../../icons/core.bmp" />
+		<image-cancel path="../../../../icons/stop.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">
+			<sound path="sounds/tech_click.wav" />
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="sounds/tech_click.wav" />
+		</command-sounds>
+	</parameters>
+
+	<!-- *** skills *** -->
+	<skills>
+		<!-- *** skill 0 *** -->
+		<skill>
+			<type value="stop"/>	
+			<name value="stop_skill"/>
+			<ep-cost value="0" />
+			<speed value="50" />
+			<anim-speed value="10" />
+			<animation path="pod/droppod.g3d" />
+			<sound enabled="false" />
+		</skill>
+		
+		<!-- *** skill 4 *** -->
+		<skill>
+			<type value="die" />	
+			<name value="die_skill"/>		
+			<ep-cost value="0" />
+			<speed value="300" />
+			<anim-speed value="15" />
+			<animation path="pod/droppodopen.g3d"/>
+			<sound enabled="true" start-time="0.0">
+				<sound-file path="sounds/openpod.ogg"/>
+			</sound>	
+			<particles value="true" start-time="0.01" end-time="0.60">
+			<particle-file path="pod_open.xml"/>
+			</particles>		
+			<fade value="false"/>
+		</skill>
+
+	</skills>
+	
+	<!-- *** commands *** -->
+	<commands>		
+	</commands>
+</unit>

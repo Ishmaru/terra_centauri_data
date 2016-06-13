@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<projectile-particle-system>
+    	<texture value="true" path="images/particle_13.bmp" luminance="true"/>
+    	<model value="false"/>
+	<primitive value="quad"/>
+	<offset x="0" y="-0.5" z="-0.2"/>
+	<color red="0.2" green="1" blue="0.2" alpha="1" />
+	<color-no-energy red="0.2" green="1" blue="0.2" alpha="0.3" />
+    	<size value="0.6" />
+    	<size-no-energy value=".1" />
+    	<speed value="20" />
+	<gravity value="0"/>
+    	<emission-rate value="1.0" />
+    	<energy-max value="8" />
+    	<energy-var value="0" />
+	
+	<trajectory type="parabolic">
+		<speed value="10"/>
+		<scale value="3"/>
+	</trajectory>
+</projectile-particle-system>

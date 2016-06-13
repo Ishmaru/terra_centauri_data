@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="yes"?>
+<projectile-particle-system>
+    	<texture value="true" path="particle_5.bmp" luminance="true"/>
+    	<model value="true" path="troop2/rocketproj.g3d">
+               <cycles value="1"/>
+	</model>
+	<primitive value="quad"/>
+	<offset x="-0.2" y=".3" z="0"/>
+	<color red="0.1" green="0.2" blue="1" alpha="1" />
+	<color-no-energy red="0.1" green="0.2" blue="1" alpha="0.3" />
+    	<size value="2.5" />
+    	<size-no-energy value="0.2" />
+    	<speed value="0.0" />
+	<gravity value="0"/>
+    	<emission-rate value="2" />
+    	<energy-max value="20" />
+    	<energy-var value="2" />
+	
+	<trajectory type="spiral">
+		<speed value="15.0"/>
+		<scale value="0.2"/>
+		<frequency value="1"/>
+	</trajectory>
+</projectile-particle-system>

@@ -1,0 +1,40 @@
+<?xml version="1.0" standalone="no"?>
+
+<faction>
+	<starting-resources>
+		<resource name="organic" amount="0"/>
+		<resource name="evolution" amount="1"/>
+		<resource name="meat" amount="200"/>
+	</starting-resources>
+	<starting-units>
+		<unit name="devourer" amount="3"/>
+		<unit name="cave" amount="1"/>
+	</starting-units>
+	<music value="true" path="../valkyre/terra_soundtrack_1.ogg"/>
+		<healthbar>
+			<height value="1"/>
+			<thickness value="0.2"/>
+			<visible value="selected"/>
+		</healthbar>
+	<ai-behavior>
+		<worker-units>
+			<unit name="devourer" minimum="6"/>
+		</worker-units>
+		<warrior-units/>
+		<resource-producer-units/>
+		<building-units>
+			<unit name="cave" minimum="3"/>
+		</building-units>
+		<upgrades>
+			<upgrade name="hunter"/>
+		</upgrades>
+		<static-values>
+			<static type-name="MinStaticResourceCount" value="10"/>
+			<static type-name="MinWorkerAttackersHarvesting" value="8"/>
+			<static type-name="MinBuildSpacing" value="5"/>
+			<static type-name="MinMinWarriors" value="2"/>
+			<static type-name="MaxMinWarriors" value="3"/>
+		</static-values>
+	</ai-behavior>
+</faction>
+

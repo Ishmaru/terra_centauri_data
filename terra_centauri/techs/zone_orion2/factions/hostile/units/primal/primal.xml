@@ -1,0 +1,168 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+
+	<!-- *** parameters *** -->
+
+	<parameters>
+		<size value="2"/>
+		<height value="2"/>
+		<max-hp value="1000" regeneration="10"/>
+		<max-ep value="80" regeneration="1"/>
+		<armor value="50"/>	
+		<armor-type value="normal"/>				
+		<sight value="15"/>
+		<time value="65"/>	
+		<multi-selection value="true"/>	
+		<cellmap value="false"/>
+		<levels>
+			<level name="rookie" kills="3"/>
+			<level name="experienced" kills="6"/>
+			<level name="veteran" kills="12"/>
+			<level name="elite" kills="24"/>
+			<level name="heroic" kills="48"/>
+		</levels>
+		<fields>
+			<field value="land"/>
+		</fields>	
+		<properties/>
+		<light enabled="false"/>
+		<unit-requirements>
+		</unit-requirements>
+		<upgrade-requirements/>
+		<resource-requirements>
+			<resource name="ore" amount="200"/>
+			<resource name="housing" amount="1" />
+		</resource-requirements>
+		<resources-stored/>
+		<image path="../../../../icons/lance.bmp"/>
+		<image-cancel path="../../../../icons/stop.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">	
+		</selection-sounds>
+		<command-sounds enabled="true">
+		</command-sounds>
+	</parameters>
+
+
+	<!-- *** skills *** -->
+
+	<skills>
+	
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="30"/>
+			<animation path="dragon/primalstand1.g3d"/>
+			<animation path="dragon/primalstand2.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+		
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="250"/>
+			<anim-speed value="110"/>
+			<animation path="dragon/primalrun.g3d"/>
+			<sound enabled="false"/>
+
+		</skill>
+
+
+
+		<skill>
+			<type value="attack"/>
+			<name value="attack_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="300"/>
+			<anim-speed value="70"/>
+			<animation path="dragon/primalattack.g3d"/>
+			<sound enabled="true" start-time="0.55">
+			</sound>
+			<attack-strenght value="300"/>
+			<attack-var value="100"/>
+			<attack-range value="2"/>
+			<attack-type value="pierce"/>
+			<attack-start-time value="0.55"/>
+			<attack-fields>
+				<field value="land"/>
+			</attack-fields>
+			<projectile value="false"/>
+			<splash value="true">
+				<radius value="0"/>
+				<damage-all value="true"/>
+				<particle value="true" path="cut.xml"/>
+
+			</splash>
+		</skill>
+
+
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="60"/>
+			<anim-speed value="70"/>
+			<animation path="dragon/eaten.g3d"/>
+			<sound enabled="true" start-time="0">					
+			</sound>				
+			<fade value="false"/>
+		</skill>
+
+
+
+
+
+	</skills>
+
+	<!-- *** commands *** -->
+	
+	<commands>
+		
+		<command>
+			<type value= "stop"/>
+			<name value="stop"/>
+			<image path="../../../../icons/stop.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+		<command>
+			<type value="move"/>
+			<name value="move"/>
+			<image path="../../../../icons/move.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+		</command>
+
+
+		<command>
+			<type value="attack"/>
+			<name value="attack"/>
+			<image path="../../../../icons/attack.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+
+		<command>
+			<type value="attack_stopped"/>
+			<name value="hold_position"/>
+			<image path="../../../../icons/hold.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+
+
+
+		
+	</commands>
+</unit>

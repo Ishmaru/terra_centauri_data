@@ -1,0 +1,157 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+
+	<!-- *** parameters *** -->
+
+	<parameters>
+		<count-in-victory-conditions value="false"/>
+		<size value="1"/>
+		<height value="1"/>
+		<max-hp value="10000" regeneration="0"/>
+		<max-ep value="10000" regeneration="10000"/>
+		<armor value="10000"/>	
+		<armor-type value="normal"/>				
+		<sight value="10"/>
+		<time value="1"/>	
+		<multi-selection value="false"/>	
+		<cellmap value="false"/>
+		<levels>
+		</levels>
+		<fields>
+			<field value="land"/>
+		</fields>	
+		<properties/>
+		<light enabled="false"/>
+		<unit-requirements/>
+		<upgrade-requirements/>
+		<resource-requirements/>
+		<resources-stored/>
+		<image path="../../../../icons/drone.bmp"/>
+		<image-cancel path="../../../../icons/stop.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">	
+		</selection-sounds>
+		<command-sounds enabled="true">
+		</command-sounds>
+	</parameters>
+
+
+	<!-- *** skills *** -->
+
+	<skills>
+	
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="80"/>
+			<animation path="droppoint/droppoint.g3d"/>
+			<particles value="true">
+				<particle-file path="glow.xml"/>
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+		
+
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="400"/>
+			<anim-speed value="80"/>
+			<animation path="droppoint/droppoint.g3d"/>
+			<particles value="true">
+				<particle-file path="glow.xml"/>
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+
+
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="60"/>
+			<anim-speed value="70"/>
+			<animation path="droppoint/droppoint.g3d"/>
+			<sound enabled="true" start-time="0">
+			</sound>
+			<particles value="true">
+				<particle-file path="glow.xml"/>
+			</particles>	
+			<attack-boost>
+				<allow-multiple-boosts value="false" />
+				<radius value="3"/>
+                        	<target value="all" include-self="false"/>
+				<max-hp value="0"  regeneration="5"/>
+				<max-ep value="0"  regeneration="5"/>
+				<sight value="0"/>
+				<attack-strenght value="0"/>
+				<attack-range value="0"/>
+				<armor value="0"/>
+				<move-speed value="0"/>
+				<production-speed value="100"/>
+				<particles value="true">
+					<affected-particle-file path="power.xml"/>
+				</particles>
+                        </attack-boost>			
+			<fade value="false"/>
+		</skill>
+
+		<skill>												
+			<type value="morph"/>											
+			<name value="morph"/>											
+			<ep-cost value="0"/>											
+			<speed value="4000"/>											
+			<anim-speed value="15"/>
+			<animation path="../energy_core/core/built.g3d"/>
+			<particles value="true">
+				<particle-file path="air_dust.xml"/>
+			</particles>	
+			<sound enabled="false"/>										
+		</skill>
+
+
+	</skills>
+
+	<!-- *** commands *** -->
+	
+	<commands>
+		
+		<command>
+			<type value= "stop"/>
+			<name value="stop"/>
+			<image path="../../../../icons/stop.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+		<command>
+			<type value="move"/>
+			<name value="move"/>
+			<image path="../../../../icons/move.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+		</command>
+
+		<command>												
+			<type value="morph"/>											
+			<name value="build"/>										
+			<image path="../../../../icons/dropoff.bmp"/>	
+			<unit-requirements/>											
+			<upgrade-requirements>
+			</upgrade-requirements>
+				<ignore-resource-requirements value="true" />							
+			<morph-skill value="morph"/>										
+			<morph-unit name= "energy_core"/>									
+			<discount value="0"/>											
+		</command>
+
+
+
+	</commands>
+</unit>

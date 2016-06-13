@@ -1,0 +1,254 @@
+<?xml version="1.0" standalone="yes" ?>
+<scenario>
+	<difficulty value="0"/>
+	<players>
+		<player control="cpu-mega" resource_multiplier="1.5" faction="devourer" team="1"/>
+		<player control="human" faction="valkyre" team="2"/>
+		<player control="cpu" faction="enviroment" team="9"/>
+		<player control="cpu" faction="hostile" team="4"/>	
+	</players>
+	<map value="tutorial"/>
+	<tileset value="zone_21"/>
+	<tech-tree value="zone_orion2"/>
+	<default-resources value="false"/>
+	<default-units value="false"/>
+	<default-victory-conditions value="false"/>
+	<scripts>
+	<startup>
+		lander = 0
+		level = 0
+		levelb = 0
+		levelc = 0
+		leveld = 0
+		levele = 0
+		disableAi(0)
+		createUnitNoSpacing('start', 1, {startLocation(1)[1] - 2, startLocation(1)[2] - 8})
+		createUnitNoSpacing('life_stone', 2, {82, 48})
+		createUnitNoSpacing('life_stone', 2, {56, 92})
+		createUnitNoSpacing('energy_vortex', 2, {22, 42})
+		createUnitNoSpacing('chest__', 0, {112, 36})
+		createUnitNoSpacing('chest__', 0, {106, 36})
+		createUnitNoSpacing('chest__', 0, {118, 36})
+		createUnitNoSpacing('chest__', 0, {46, 42})
+		createUnitNoSpacing('chest__', 0, {54, 34})
+		for i=1, 3 do
+			createUnit('spitter', 0, {108, 20})
+		end
+			createUnit('hunter', 0, {90, 48})
+		for i=1, 5 do
+			createUnit('spitter', 0, {58, 48})	
+		end
+			createUnit('digger', 0, {28, 24})
+			createUnit('splinter', 0, {32, 28})
+			createUnit('splinter', 0, {32, 28})
+		for i=1, 3 do
+			createUnit('armor', 0, {20, 76})
+		end		
+			createUnit('mother', 0, {80, 100})		
+			createUnit('shocker', 0, {56, 92})	
+			createUnit('shocker', 0, {56, 92})
+		for i=1, 3 do
+				createUnit('cave', 0, {104, 104})
+		end
+		for i=1, 3 do
+				createUnit('hunter', 0, {104, 104})
+		end
+	</startup>
+	<unitDied>
+		ko = lastDeadUnitKiller()
+	if lastDeadUnitName()=='chest' then
+		giveKills(ko, -1)
+		addConsoleText("chesta")
+		giveResource('gold', 1, 300);
+	end
+	if lastDeadUnitName()=='chest_' then
+		giveKills(ko, -1)
+		addConsoleText("chestb")
+		giveResource('ore', 1, 300);
+	end
+	if lastDeadUnitName()=='chest__' then
+		addConsoleText("chestc")
+		giveKills(ko, 20)
+
+	end
+	if lastDeadUnitName()=='life_stone' then
+		giveKills(ko, -1)
+		addConsoleText("lifestone")
+		giveResource('gold', 1, 500);
+
+	end
+	if lastDeadUnitName()=='energy_vortex' then
+		giveKills(ko, -1)
+		addConsoleText("vortex")
+		giveResource('gold', 1, 500);
+	end
+	if lastDeadUnitName()=='worker' then
+		giveResource('organic', 0, 150);
+	end
+	if lastDeadUnitName()=='lancer' then
+		giveResource('organic', 0, 150);
+	end
+	if lastDeadUnitName()=='rifle' then
+		giveResource('organic', 0, 150);
+	end
+	if lastDeadUnitName()=='beam' then
+		giveResource('organic', 0, 150);
+	end
+	if lastDeadUnitName()=='rocket' then
+		giveResource('organic', 0, 150);
+	end
+	if lastDeadUnitName()=='jetpack' then
+		giveResource('organic', 0, 150);
+	end
+	if lastDeadUnitName()=='primal' then
+		giveResource('organic', 0, 250);
+	end
+	if lastDeadUnitName()=='phalis' then
+		giveResource('organic', 0, 100);
+	end
+	if lastDeadUnitName()=='jelly' then
+		giveResource('organic', 0, 50);
+	end
+	if lastDeadUnitName()=='drop_pod' then
+		giveKills(ko, -1)
+		random = math.random(5)
+		pod=lastDeadUnit()
+		x2=unitPosition(pod)[1]
+		y2=unitPosition(pod)[2]
+    		if random ==1 then
+			addConsoleText("silo")
+			createUnitNoSpacing('silo', 1, {x2, y2})
+			silo=lastCreatedUnit ()
+			on=lastCreatedUnit ()
+			giveAttackStoppedCommand(on, 'hold_position', 1)	
+   		 elseif random ==2 then
+			addConsoleText("uplink")
+			createUnitNoSpacing('orbital_uplink', 1, {x2, y2})
+			on=lastCreatedUnit ()
+			giveAttackStoppedCommand(on, 'hold_position', 1)
+   		 elseif random ==3 then
+			addConsoleText("tank")
+			createUnitNoSpacing('tank', 1, {x2, y2})
+		 elseif random ==4 then
+			createUnitNoSpacing('upgrades', 1, {0,0})
+			upgrade=lastCreatedUnit ()
+			random = math.random(4)
+			if random ==1 then
+				giveUpgradeCommand(upgrade, 'nano_bots')
+				addConsoleText("upgrade1")
+			elseif random==2 then
+				giveUpgradeCommand(upgrade, 'a_p_bullets')
+				addConsoleText("upgrade2")
+			elseif random==3 then
+				giveUpgradeCommand(upgrade, 'compressed_energy')
+				addConsoleText("upgrade3")
+			elseif random==4 then
+				giveUpgradeCommand(upgrade, 'improved_shielding')
+				addConsoleText("upgrade4")
+			end
+   		 elseif random ==5 then
+			createUnitNoSpacing('upgrades', 1, {0,0})
+			upgrade=lastCreatedUnit ()
+			random = math.random(4)
+			if random ==1 then
+				giveUpgradeCommand(upgrade, 'nano_bots')
+				addConsoleText("upgrade1")
+			elseif random==2 then
+				giveUpgradeCommand(upgrade, 'a_p_bullets')
+				addConsoleText("upgrade2")
+			elseif random==3 then
+				giveUpgradeCommand(upgrade, 'compressed_energy')
+				addConsoleText("upgrade3")
+			elseif random==4 then
+				giveUpgradeCommand(upgrade, 'improved_shielding')
+				addConsoleText("upgrade4")
+			end
+    		end	
+	end
+		if lastDeadUnitName()=='captured' then
+			addConsoleText("free")
+			free=lastDeadUnit()
+			x2=unitPosition(free)[1]
+			y2=unitPosition(free)[2]
+			createUnitNoSpacing('worker', 1, {x2, y2})
+			giveKills(ko, -1)
+		end
+		if lastDeadUnitName()=='captured_' then
+			addConsoleText("free")
+			free=lastDeadUnit()
+			x2=unitPosition(free)[1]
+			y2=unitPosition(free)[2]
+			createUnitNoSpacing('worker', 1, {x2, y2})
+			giveKills(ko, -1)
+		end
+		if unitCountOfType(0, 'spitter')==5 and levele ==0 then
+			showMessage('welcome', 'tuitorial1')
+			showMessage('welcome2', 'tuitorial1')
+			showMessage('welcome3', 'tuitorial1')
+			showMessage('welcome4', 'tuitorial1')
+			levele = 1
+		end
+		if unitCountOfType(0, 'chest__')==4 and leveld ==0 then
+			showMessage('chest', 'tuitorial2')
+			leveld = 1
+		end
+		if unitCountOfType(0, 'hunter')==3 and levelc ==0 then
+			showMessage('heal', 'tuitorial3')
+			showMessage('heal2', 'tuitorial3')
+			levelc = 1
+		end
+		if unitCountOfType(0, 'digger')==0 and level ==0 then
+			createUnitNoSpacing('start', 1, {startLocation(0)[1] - 2, startLocation(1)[2] - 8})
+			showMessage('beam', 'tuitorial4')
+			showMessage('beam2', 'tuitorial4')
+			lander = 1
+			level = 1
+		end
+		if unitCountOfType(0, 'armor')==0 and levelb ==0 then
+			createUnitNoSpacing('mech_carrier', 1, {28,80})
+			start2=lastCreatedUnit ()
+			morphToUnit(start2, 'drop_off', 0)
+			showMessage('mech', 'tuitorial5')
+			levelb = 1
+		end		
+		if unitCountOfType(0, 'cave')==0 then
+			clearDisplayText()
+			setPlayerAsWinner(1)
+			endGame()
+		end	
+		if unitCountOfType(1, 'lancer')==0 and unitCountOfType(1, 'beam')==0 and unitCountOfType(1, 'mech')==0 and unitCountOfType(1, 'mech_carrier')==0 then
+			clearDisplayText()
+			setPlayerAsWinner(0)
+			endGame()
+		end			
+	</unitDied>
+	<unitAttacking>
+	if lastAttackingUnitName()=='silo' then
+	playStaticSound(nuke.wav)
+	addConsoleText("nuke")
+	end
+	</unitAttacking>
+	<unitCreatedOfType type="lander">
+	if lander==0 then
+		for i=1, 5 do
+			createUnitNoSpacing('lancer', 1, startLocation(1))
+		end
+	elseif lander==1 then
+		for i=1, 5 do
+			createUnitNoSpacing('beam', 1, startLocation(0))
+		end
+	elseif lander==3 then
+		createUnitNoSpacing('transport', 1, startLocation(1))
+		for i=1, 5 do
+			createUnitNoSpacing('worker', 1, startLocation(1))
+		end
+		giveResource('gold', 1, 1000);
+		giveResource('ore', 1, 750);
+		end
+	</unitCreatedOfType>
+	<unitCreatedOfType type="start">
+		start=lastCreatedUnit ()
+		morphToUnit(start, 'drop_off', 0)
+	</unitCreatedOfType>
+</scripts>
+</scenario>

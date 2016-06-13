@@ -1,0 +1,412 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+
+	<!-- *** parameters *** -->
+
+	<parameters>
+		<size value="1"/>
+		<height value="2"/>
+		<max-hp value="400" regeneration="1"/>
+		<max-ep value="50" regeneration="1"/>
+		<armor value="0"/>
+		<armor-type value="normal"/>					
+		<sight value="10"/>
+		<time value="80"/>	
+		<multi-selection value="true"/>	
+		<cellmap value="false"/>
+		<levels>
+			<level name="rookie" kills="2"/>
+			<level name="experienced" kills="5"/>
+			<level name="veteran" kills="10"/>
+			<level name="elite" kills="15"/>
+			<level name="heroic" kills="20"/>
+		</levels>
+		<fields>
+			<field value="land"/>
+		</fields>	
+		<properties/>
+		<light enabled="false"/>
+		<unit-requirements/>
+		<upgrade-requirements/>
+		<resource-requirements>
+			<resource name="gold" amount="150"/>
+			<resource name="housing" amount="1" />			
+		</resource-requirements>
+		<resources-stored/>
+		<image path="../../../../icons/worker.bmp"/>
+		<image-cancel path="../../../../icons/stop.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">					
+		</selection-sounds>
+		<command-sounds enabled="true">
+		</command-sounds>
+   		<tags>
+		<tag value="land" />
+		<tag value="organic" />
+   		</tags>
+	</parameters>
+
+
+	<!-- *** skills *** -->
+
+	<skills>
+	
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="25"/>
+			<animation path="/support/workerstand2.g3d"/>
+			<animation path="/support/workerstand1.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+		
+		<skill>
+			<type value="stop"/>
+			<name value="stop_loaded_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="500"/>
+			<anim-speed value="90"/>
+			<animation path="/support/workerharvest.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="300"/>
+			<anim-speed value="160"/>
+			<animation path="/support/workerrun.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="move_gold_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="300"/>
+			<anim-speed value="160"/>
+			<animation path="/support/workerrun.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="move_loaded_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="210"/>
+			<anim-speed value="110"/>
+			<animation path="/support/workercarry.g3d"/>
+			<particles value="true">
+				<particle-file path="gravity_beam.xml"/>
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="move_loaded_ore_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="210"/>
+			<anim-speed value="110"/>
+			<animation path="/support/workercarryore.g3d"/>
+			<particles value="true">
+				<particle-file path="gravity_beam_ore.xml"/>
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="harvest"/>
+			<name value="mine_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="400"/>
+			<anim-speed value="100"/>
+			<animation path="/support/workerharvest.g3d"/>
+			<particles value="true">
+				<particle-file path="harvestbeam.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0.5">
+
+			</sound>
+		</skill>	
+		
+		<skill>
+			<type value="harvest"/>
+			<name value="ore_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="400"/>
+			<anim-speed value="100"/>
+			<animation path="/support/workerharvest.g3d"/>
+			<particles value="true">
+				<particle-file path="harvestbeam.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0.5">
+
+			</sound>
+		</skill>
+
+		<skill>
+			<type value="build"/>
+			<name value="build_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="450"/>
+			<anim-speed value="90"/>
+			<animation path="support/workerharvest.g3d"/>
+			<particles value="true">
+				<particle-file path="harvestbeam.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0.5">
+			</sound>
+		</skill>
+
+		<skill>
+			<type value="repair"/>
+			<name value="repair_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="200"/>
+			<anim-speed value="120"/>
+			<animation path="/support/workerharvest.g3d"/>
+			<particles value="true">
+				<particle-file path="harvestbeam.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0.5">
+				<sound-file path="sounds/worker_build1.wav"/>
+				<sound-file path="sounds/worker_build2.wav"/>
+				<sound-file path="sounds/worker_build3.wav"/>
+			</sound>
+		</skill>
+
+		<skill>
+			<type value="repair"/>
+			<name value="fix_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="400"/>
+			<anim-speed value="120"/>
+			<animation path="/support/workerharvest.g3d"/>
+			<particles value="true">
+				<particle-file path="harvestbeam.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0.5">
+			</sound>
+		</skill>
+
+		<skill>
+			<type value="repair"/>
+			<name value="heal_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="800"/>
+			<anim-speed value="60"/>
+			<animation path="/support/workerharvest.g3d"/>
+			<particles value="true">
+				<particle-file path="harvestbeam.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0.5">
+			</sound>
+		</skill>
+
+		<skill>
+			<type value="attack"/>
+			<name value="attack_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="300"/>
+			<anim-speed value="100"/>
+			<animation path="/support/workerharvest.g3d"/>
+			<particles value="true">
+				<particle-file path="harvestbeam.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0.2">
+			</sound>
+			<attack-strenght value="125"/>
+			<attack-var value="25"/>
+			<attack-range value="3"/>
+			<attack-type value="energy"/>
+			<attack-start-time value="0.2"/>
+			<attack-fields>
+				<field value="land"/>
+			</attack-fields>
+			<projectile value="false"/>
+			<splash value="false"/>
+		</skill>
+		
+	
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="90"/>
+			<anim-speed value="90"/>
+			<animation path="/support/die.g3d"/>
+			<sound enabled="true" start-time="0">
+				<sound-file path="sounds/worker_die1.wav"/>
+				<sound-file path="sounds/worker_die2.wav"/>								
+			</sound>			
+			<fade value="false"/>
+		</skill>						
+
+	</skills>
+
+	<!-- *** commands *** -->
+	
+	<commands>
+		
+		<command>
+			<type value= "stop"/>
+			<name value="stop"/>
+			<image path="../../../../icons/stop.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+		<command>
+			<type value= "move"/>
+			<name value="move"/>
+			<image path="../../../../icons/move.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+		</command>
+
+		<command>
+			<type value="harvest"/>
+			<name value="mine_crystal"/>
+			<image path="../../../../icons/harvest.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_gold_skill"/>
+			<harvest-skill value="mine_skill"/>
+			<stop-loaded-skill value="stop_loaded_skill"/>
+			<move-loaded-skill value="move_loaded_skill"/>
+			<harvested-resources>
+				<resource name="gold"/>							
+			</harvested-resources>
+			<max-load value="50"/>
+			<hits-per-unit value="1"/>				
+		</command>
+		<command>
+			<type value="harvest"/>
+			<name value="mine_ore"/>
+			<image path="../../../../icons/harvest.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_gold_skill"/>
+			<harvest-skill value="ore_skill"/>
+			<stop-loaded-skill value="stop_loaded_skill"/>
+			<move-loaded-skill value="move_loaded_ore_skill"/>
+			<harvested-resources>
+				<resource name="ore"/>									
+			</harvested-resources>
+			<max-load value="25"/>
+			<hits-per-unit value="1"/>				
+		</command>
+		<command>
+			<type value= "build"/>
+			<name value="build_main"/>
+			<image path="../../../../icons/build.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<build-skill value="build_skill"/>
+			<buildings>	
+				<building name="barracks"/>
+				<building name="energy_core"/>
+				<building name="factory"/>
+			</buildings>
+			<start-sound enabled="false"/>
+			<built-sound enabled="true">							
+			</built-sound>	
+		</command>
+		<command>
+			<type value= "build"/>
+			<name value="build_defense"/>
+			<image path="../../../../icons/builddefense.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<build-skill value="build_skill"/>
+			<buildings>	
+				<building name="mine"/>
+				<building name="turret"/>
+				<building name="energy_turret"/>
+				<building name="restore_node"/>		
+				<building name="sensor_array"/>
+				<building name="shield_generator"/>
+			</buildings>
+			<start-sound enabled="false"/>
+			<built-sound enabled="true">							
+			</built-sound>	
+		</command>
+		<command>
+			<type value="repair"/>
+			<name value="repair_structure"/>
+			<image path="../../../../icons/repair.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<repair-skill value="repair_skill"/>
+			<repaired-units>
+				<unit name="lander"/>	
+				<unit name="barracks"/>	
+				<unit name="factory"/>
+				<unit name="energy_core"/>
+				<unit name="restore_node"/>
+				<unit name="sensor_array"/>
+				<unit name="shield_generator"/>
+				<unit name="auto_turret"/>
+				<unit name="silo"/>	
+				<unit name="orbital_uplink"/>			
+			</repaired-units>		
+		</command>
+		
+		<command>
+			<type value="repair"/>
+			<name value="repair_tank"/>
+			<image path="../../../../icons/repair.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<repair-skill value="fix_skill"/>
+			<repaired-units>
+				<unit name="mech"/>
+				<unit name="transport"/>
+				<unit name="tank"/>
+				<unit name="turret"/>
+				<unit name="energy_turret"/>			
+			</repaired-units>		
+		</command>
+
+		<command>
+			<type value="repair"/>
+			<name value="heal"/>
+			<image path="../../../../icons/heal.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<repair-skill value="heal_skill"/>
+			<repaired-units>
+				<unit name="worker"/>
+				<unit name="lancer"/>
+				<unit name="rifle"/>
+				<unit name="rocket"/>
+				<unit name="guard"/>	
+				<unit name="beam"/>	
+			</repaired-units>		
+		</command>
+
+		<command>
+			<type value="attack"/>
+			<name value="attack"/>
+			<image path="../../../../icons/attack.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+	
+
+	</commands>
+</unit>

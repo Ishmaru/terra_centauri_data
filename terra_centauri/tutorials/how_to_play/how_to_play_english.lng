@@ -1,0 +1,36 @@
+;message strings
+chesta=Obtained 300 Crystals
+chestb=Obtained 300 Ore
+chestc=Unit Rank UP
+lifestone=Obtained 500 Crystals
+vortex=Obtained 500 Crystals
+nuke=Missile Launched
+silo=Silo Unlocked
+uplink=Orbital Uplink Unlocked
+tank=Tank Squad Unlocked
+primal=Primal Tamed
+scout=Scout Squad Unlocked
+devourer=Devourer Ambush!
+chest=Chest Unlocked
+free=Worker Freed!
+upgrade1= Nano Bots Upgraded!
+upgrade2= A P Bullets Upgraded!
+upgrade3= Compressed Energy Upgraded!
+upgrade4= Improved Shielding Upgraded!
+
+welcome=Welcome To Terra Centauri! We have dispatched a samll LANCER team to investigate this area for Devourer activity. 
+welcome2=Lets go over some basics: LEFT CLICK an individual to select or LEFT CLICK and DRAG a box around your warriors to select multiple. Once selected, RIGHT CLICK to order your units around. RIGHT CLICK Enemies to attack. 
+welcome3=Once selected you can assign that group to a number by pressing CTRL + 1-9. this allows for quick selection between groups.
+welcome4=Ok follow the path and dispatch any Devourers you encounter!
+chest=On the battlefield you will find CHESTS attack them to break them open. The color of the glow upon opeing refers to the reward given, BLUE=Crystals, WHITE=Ore, YELLOW=Experence. 
+heal=HEAL STONES, large green glowing crystals, are vital assets. They restore health to any unit adjacent to it. Before moving forward, order your units to stand near the HEAL STONE to restore their HP.
+heal2=I Recomend placing a marker (F2 key) to find it easily. There are all sorts of hidden treasures you will find across Terra.
+beam=Were sending you reinforcements armed with heavy beam weapons which are strong against armored foes. They are low on EP though, bring them to the ENERGY VORTEX to the south to recharge their EP. 
+beam2=Certain attacks/abilities cost EP and cannot be used if there is inadequate EP available. There are also some Devourers that sap EP away your your units. WARNING, if a Unit's EP  drops below 0 they will be paralyzed!
+mech=Good work! we are sending you an EXO MECH unit. Better armor than infantry, and armed with twin gattling guns. Use this force to find and destroy the remaining Devourers.
+
+tuitorial1=Welcome!
+tuitorial2=Chests
+tuitorial3=Heal Stones
+tuitorial4=Anti-Armor
+tuitorial5=EXO MECH

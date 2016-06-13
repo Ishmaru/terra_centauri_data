@@ -1,0 +1,160 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+
+	<!-- *** parameters *** -->
+
+	<parameters>
+		<size value="2"/>
+		<height value="5"/>
+		<max-hp value="800" regeneration="0"/>
+		<max-ep value="60" regeneration="1"/>
+		<armor value="100"/>	
+		<armor-type value="metal"/>				
+		<sight value="6"/>
+		<time value="250"/>	
+		<multi-selection value="true"/>	
+		<cellmap value="false"/>
+		<levels>
+		</levels>
+		<fields>
+			<field value="air"/>
+		</fields>	
+		<properties>	
+		</properties>
+		<light enabled="false"/>
+		<unit-requirements/>
+		<upgrade-requirements/>
+		<resource-requirements>
+			<resource name="gold" amount="50"/>
+			<resource name="energy" amount="30"/>
+		</resource-requirements>
+		<resources-stored/>							
+		<image path="../../../../icons/mech.bmp"/>
+		<image-cancel path="../../../../icons/stop.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">	
+		</selection-sounds>
+		<command-sounds enabled="true">
+		</command-sounds>
+   		<tags>
+			<tag value="air" />
+			<tag value="mech" />
+   		</tags>
+	</parameters>
+
+
+	<!-- *** skills *** -->
+
+	<skills>
+	
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="30"/>
+			<animation path="mech/fly.g3d"/>
+			<particles value="true">
+				<particle-file path="air_dust.xml"/>
+				<particle-file path="fan_blow.xml"/>
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+		
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="450"/>
+			<anim-speed value="30"/>
+			<animation path="mech/fly.g3d"/>
+			<particles value="true">
+				<particle-file path="air_dust.xml"/>
+				<particle-file path="fan_blow.xml"/>
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="60"/>
+			<anim-speed value="70"/>
+			<animation path="mech/mechboom.g3d"/>
+			<particles value="true" start-time="0.0" end-time="0.6">
+				<particle-file path="expl_small.xml"/>
+				<particle-file path="expl_small2.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0">
+				<sound-file path="sounds/expl.wav"/>
+				<sound-file path="sounds/expl.wav"/>					
+			</sound>				
+			<fade value="false"/>
+			<shake enabled="true" intensity="70" duration="150" start-time="0.0">
+				<self enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+				<team enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+				<enemy enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+			</shake>
+		</skill>
+
+
+		<skill>												
+			<type value="morph"/>											
+			<name value="morph"/>											
+			<ep-cost value="0"/>											
+			<speed value="4000"/>											
+			<anim-speed value="15"/>
+			<animation path="mech/dropoff.g3d"/>
+			<anim-progress-bound value="true"/>
+			<particles value="true">
+				<particle-file path="air_dust.xml"/>
+			</particles>	
+			<sound enabled="true" start-time="0.0">
+				<sound-file path="sounds/dropoff.ogg"/>
+			</sound>										
+		</skill>
+
+
+	</skills>
+
+	<!-- *** commands *** -->
+	
+	<commands>
+		
+		<command>
+			<type value= "stop"/>
+			<name value="stop"/>
+			<image path="../../../../icons/stop.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+		<command>
+			<type value="move"/>
+			<name value="move"/>
+			<image path="../../../../icons/move.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+		</command>	
+
+		<command>												
+			<type value="morph"/>											
+			<name value="drop_off"/>										
+			<image path="../../../../icons/dropoff.bmp"/>	
+			<unit-requirements/>											
+			<upgrade-requirements>
+			</upgrade-requirements>
+				<ignore-resource-requirements value="true" />							
+			<morph-skill value="morph"/>										
+			<morph-unit name= "mech"/>									
+			<discount value="0"/>											
+		</command>
+
+
+
+	</commands>
+</unit>

@@ -1,0 +1,166 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+	<parameters>
+		<size value="3"/>
+		<height value="3"/>
+		<max-hp value="2200" regeneration="6"/>
+		<max-ep value="100" regeneration="1"/>
+		<armor value="150"/>	
+		<armor-type value="hard"/>				
+		<sight value="10"/>
+		<time value="20"/>	
+		<multi-selection value="true"/>	
+		<cellmap value="false"/>
+		<levels>
+			<level name="taste_blood" kills="3"/>
+			<level name="carnivore" kills="7"/>
+			<level name="ptreditor" kills="15"/>
+		</levels>
+		<fields>
+			<field value="land"/>
+		</fields>	
+		<properties>
+			<property value="rotated_climb"/>	
+		</properties>
+		<light enabled="false"/>
+		<unit-requirements>
+		</unit-requirements>
+		<upgrade-requirements/>
+		<resource-requirements>	
+			<resource name="organic" amount="100"/>
+			<resource name="housing" amount="5" />
+		</resource-requirements>
+		<resources-stored>								
+		</resources-stored>
+		<image path="../../../../icons/armor.bmp"/>
+		<image-cancel path="images/swordman_attack.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">
+			<sound path="sounds/sel1.wav"/>
+			<sound path="sounds/sel2.wav"/>
+			<sound path="sounds/sel3.wav"/>
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="sounds/sel1.wav"/>
+			<sound path="sounds/sel2.wav"/>
+			<sound path="sounds/sel3.wav"/>
+		</command-sounds>
+   		<tags>
+			<tag value="land" />
+			<tag value="organic" />
+			<tag value="devourer" />
+   		</tags>
+	</parameters>
+
+	<skills>
+	
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="45"/>
+			<animation path="models/armorbigstand.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="200"/>
+			<anim-speed value="110"/>
+			<animation path="models/armorbigrun.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="charge_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="350"/>
+			<anim-speed value="150"/>
+			<animation path="models/armorbigrun.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="attack"/>
+			<name value="attack_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="100"/>
+			<anim-speed value="80"/>
+			<animation path="models/armorbigattack.g3d"/>
+			<sound enabled="true" start-time="0.25">
+				<sound-file path="sounds/attack2.wav"/>
+			</sound> 
+			<attack-strenght value="250"/>
+			<attack-var value="100"/>
+			<attack-range value="1"/>
+			<attack-type value="pierce"/>
+			<attack-fields>
+				<field value="land"/>
+			</attack-fields>
+			<attack-start-time value="0.25"/>
+			<projectile value="false"/>
+			<splash value="false"/>
+			<shake enabled="true" intensity="80" duration="80" start-time="0.41">
+				<self enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+				<team enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+				<enemy enabled="true" visible="true" in-camera-view="true" camera-distance-affected="true"/>
+			</shake>
+		</skill>	
+
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="60"/>
+			<anim-speed value="60"/>
+			<animation path="models/armorbigstand.g3d"/>
+			<particles value="true" start-time="0.0" end-time="0.1">
+				<particle-file path="splat.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0">
+				<sound-file path="sounds/die1.ogg"/>
+				<sound-file path="sounds/die2.wav"/>
+				<sound-file path="sounds/die3.ogg"/>
+			</sound>			
+			<fade value="true"/>
+		</skill>
+
+	</skills>
+	
+	<commands>
+		
+		<command>
+			<type value="stop"/>
+			<name value="stop"/>
+			<image path="images/swordman_attack.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+		<command>
+			<type value="move"/>
+			<name value="move"/>
+			<image path="images/swordman_attack.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+		</command>
+
+		<command>
+			<type value="attack"/>
+			<name value="devour"/>
+			<image path="images/swordman_attack.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="charge_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+
+	</commands>
+</unit>

@@ -1,0 +1,194 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+	<parameters>
+		<size value="1"/>
+		<height value="1"/>
+		<max-hp value="350" regeneration="4"/>
+		<max-ep value="10" regeneration="1"/>
+		<armor value="0"/>	
+		<armor-type value="normal"/>				
+		<sight value="5"/>
+		<time value="50"/>	
+		<multi-selection value="true"/>	
+		<cellmap value="false"/>
+		<levels>
+		</levels>
+		<fields>
+			<field value="land"/>
+		</fields>	
+		<properties>
+			<property value="rotated_climb"/>	
+		</properties>
+		<light enabled="false"/>
+		<unit-requirements>
+			<unit name="1"/>
+		</unit-requirements>
+		<upgrade-requirements>
+			<upgrade name="flyer"/>
+		</upgrade-requirements>
+		<resource-requirements>	
+			<resource name="organic" amount="75"/>
+			<resource name="housing" amount="1" />
+		</resource-requirements>
+		<resources-stored>								
+		</resources-stored>
+		<image path="../../../../icons/bomber.bmp"/>
+		<image-cancel path="images/swordman_attack.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">
+			<sound path="sounds/sel1.wav"/>
+			<sound path="sounds/sel2.wav"/>
+			<sound path="sounds/sel3.wav"/>
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="sounds/sel1.wav"/>
+			<sound path="sounds/sel2.wav"/>
+			<sound path="sounds/sel3.wav"/>
+		</command-sounds>
+   		<tags>
+			<tag value="land" />
+			<tag value="organic" />
+			<tag value="devourer" />
+   		</tags>
+	</parameters>
+
+	<skills>
+	
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="30"/>
+			<animation path="models/bomber.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="400"/>
+			<anim-speed value="300"/>
+			<animation path="models/bomber.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="charge_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="250"/>
+			<anim-speed value="150"/>
+			<animation path="models/bomber.g3d"/>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="attack"/>
+			<name value="attack_skill"/>		
+			<ep-cost value="10"/>
+			<speed value="100"/>
+			<anim-speed value="100"/>
+			<animation path="models/bomber.g3d"/>
+			<sound enabled="true" start-time="0.6">
+				<sound-file path="sounds/attack2.wav"/>
+			</sound> 
+			<attack-strenght value="0"/>
+			<attack-var value="0"/>
+			<attack-range value="1"/>
+			<attack-type value="acid"/>
+			<attack-fields>
+				<field value="land"/>
+			</attack-fields>
+			<attack-start-time value="1"/>
+			<projectile value="false"/>
+			<sound enabled="false"/>
+			<splash value="false"/>
+			<attack-boost>
+				<allow-multiple-boosts value="false" />
+				<radius value="3"/>
+				<target value="all" include-self="true">
+				<tag name="land" />
+				</target>
+				<max-hp value="0"  regeneration="-400"/>
+				<max-ep value="0"/>
+				<sight value="0"/>
+				<attack-strenght value="0"/>
+				<attack-range value="0"/>
+				<armor value="0"/>
+				<move-speed value="0"/>
+				<production-speed value="0"/>
+				<particles value="false"/>
+                        </attack-boost>
+		</skill>	
+
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="60"/>
+			<anim-speed value="60"/>
+			<animation path="models/bomber.g3d"/>
+			<attack-boost>
+				<allow-multiple-boosts value="true" />
+				<target value="all" include-self="true">
+				<tag name="land" />
+				</target>
+				<radius value="3"/>
+				<max-hp value="0"  regeneration="-50"/>
+				<max-ep value="0"/>
+				<sight value="0"/>
+				<attack-strenght value="0"/>
+				<attack-range value="0"/>
+				<armor value="0"/>
+				<move-speed value="0"/>
+				<production-speed value="0"/>
+				<particles value="false"/>
+                        </attack-boost>
+			<particles value="true">
+				<particle-file path="fire.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0">
+				<sound-file path="sounds/die1.ogg"/>
+				<sound-file path="sounds/die2.wav"/>
+				<sound-file path="sounds/die3.ogg"/>
+			</sound>			
+			<fade value="true"/>
+		</skill>
+
+	</skills>
+	
+	<commands>
+		
+		<command>
+			<type value="stop"/>
+			<name value="stop"/>
+			<image path="images/swordman_attack.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+		<command>
+			<type value="move"/>
+			<name value="move"/>
+			<image path="images/swordman_attack.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+		</command>
+
+		<command>
+			<type value="attack"/>
+			<name value="fire_bomb"/>
+			<image path="images/swordman_attack.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="charge_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+
+	</commands>
+</unit>

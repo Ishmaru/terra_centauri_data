@@ -1,0 +1,217 @@
+<?xml version="1.0" standalone="no"?>
+
+<unit>
+	<parameters>
+		<size value="3"/>
+		<height value="3"/>
+		<max-hp value="1800" regeneration="8"/>
+		<max-ep value="30" regeneration="1"/>
+		<armor value="60"/>	
+		<armor-type value="normal"/>				
+		<sight value="15"/>
+		<time value="20"/>	
+		<multi-selection value="true"/>	
+		<cellmap value="false"/>
+		<levels>
+			<level name="taste_blood" kills="6"/>
+			<level name="carnivore" kills="14"/>
+			<level name="ptreditor" kills="36"/>
+		</levels>
+		<fields>
+			<field value="air"/>
+		</fields>	
+		<properties>
+			<property value="rotated_climb"/>	
+		</properties>
+		<light enabled="false"/>
+		<unit-requirements>
+		</unit-requirements>
+		<upgrade-requirements>
+		</upgrade-requirements>
+		<resource-requirements>	
+			<resource name="meat" amount="8" />
+		</resource-requirements>
+		<resources-stored>								
+		</resources-stored>
+		<image path="../../../../icons/alphaflyer.bmp"/>
+		<image-cancel path="images/swordman_attack.bmp"/>
+		<meeting-point value="false"/>
+		<selection-sounds enabled="true">
+			<sound path="sounds/sel1.wav"/>
+			<sound path="sounds/sel2.wav"/>
+			<sound path="sounds/sel3.wav"/>
+		</selection-sounds>
+		<command-sounds enabled="true">
+			<sound path="sounds/sel1.wav"/>
+			<sound path="sounds/sel2.wav"/>
+			<sound path="sounds/sel3.wav"/>
+		</command-sounds>
+   		<tags>
+			<tag value="air" />
+			<tag value="organic" />
+			<tag value="devourer" />
+   		</tags>
+	</parameters>
+
+	<skills>
+	
+		<skill>
+			<type value="stop"/>
+			<name value="stop_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="1000"/>
+			<anim-speed value="100"/>
+			<animation path="models/flyerfly1.g3d"/>
+			<animation path="models/flyerfly2.g3d"/>
+			<particles value="true">
+				<particle-file path="air_dust.xml"/>
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="move_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="450"/>
+			<anim-speed value="100"/>
+			<animation path="models/flyerfly1.g3d"/>
+			<animation path="models/flyerfly2.g3d"/>
+			<particles value="true">
+				<particle-file path="air_dust.xml"/>
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="move"/>
+			<name value="charge_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="450"/>
+			<anim-speed value="100"/>
+			<animation path="models/flyerfly1.g3d"/>
+			<animation path="models/flyerfly2.g3d"/>
+			<particles value="true">
+				<particle-file path="air_dust.xml"/>
+			</particles>
+			<sound enabled="false"/>
+		</skill>
+
+		<skill>
+			<type value="attack"/>
+			<name value="attack_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="50"/>
+			<anim-speed value="50"/>
+			<animation path="models/flyereat.g3d"/>
+			<particles value="true">
+				<particle-file path="air_dust.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0.25">
+				<sound-file path="sounds/attack2.wav"/>
+			</sound> 
+			<attack-strenght value="400"/>
+			<attack-var value="200"/>
+			<attack-range value="1"/>
+			<attack-type value="eat"/>
+			<attack-fields>
+				<field value="air"/>
+			</attack-fields>
+			<attack-start-time value="0.25"/>
+			<projectile value="false"/>
+			<splash value="false"/>
+		</skill>
+
+		<skill>
+			<type value="attack"/>
+			<name value="spit_skill"/>		
+			<ep-cost value="8"/>
+			<speed value="100"/>
+			<anim-speed value="50"/>
+			<animation path="models/flyereat2.g3d"/>
+			<sound enabled="true" start-time="0.25">
+				<sound-file path="sounds/attack2.wav"/>
+			</sound> 
+			<attack-strenght value="500"/>
+			<attack-var value="100"/>
+			<attack-range value="5"/>
+			<attack-type value="explosive"/>
+			<attack-fields>
+				<field value="land"/>
+			</attack-fields>
+			<attack-start-time value="0.25"/>
+			<projectile value="true">
+				<particle value="true" path="bomber_spit.xml"/>
+				<sound enabled="true">
+				</sound>
+			</projectile>
+			<splash value="true">
+				<radius value="2"/>
+				<damage-all value="true"/>
+				<particle value="true" path="shell_expl_large.xml"/>
+			</splash>
+		</skill>	
+
+		<skill>
+			<type value="die"/>
+			<name value="die_skill"/>		
+			<ep-cost value="0"/>
+			<speed value="60"/>
+			<anim-speed value="60"/>
+			<animation path="models/flyerfly1.g3d"/>
+			<particles value="true" start-time="0.0" end-time="0.1">
+				<particle-file path="splat.xml"/>
+			</particles>
+			<sound enabled="true" start-time="0">
+				<sound-file path="sounds/die1.ogg"/>
+				<sound-file path="sounds/die2.wav"/>
+				<sound-file path="sounds/die3.ogg"/>
+			</sound>			
+			<fade value="true"/>
+		</skill>
+
+
+	</skills>
+	
+	<commands>
+		
+		<command>
+			<type value="stop"/>
+			<name value="stop"/>
+			<image path="../../../../icons/stop.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<stop-skill value="stop_skill"/>
+		</command>
+
+		<command>
+			<type value="move"/>
+			<name value="move"/>
+			<image path="../../../../icons/move.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="move_skill"/>
+		</command>
+
+		<command>
+			<type value="attack"/>
+			<name value="devour"/>
+			<image path="../../../../icons/attack.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="charge_skill"/>
+			<attack-skill value="attack_skill"/>
+		</command>
+
+		<command>
+			<type value="attack"/>
+			<name value="bomber_spit"/>
+			<image path="../../../../icons/attack.bmp"/>
+			<unit-requirements/>
+			<upgrade-requirements/>
+			<move-skill value="charge_skill"/>
+			<attack-skill value="spit_skill"/>
+		</command>
+
+	</commands>
+</unit>
